@@ -33,3 +33,78 @@
   * Set Types, String Set, Number Set, Binary Set
 
 ### Primary Keys
+
+* Opção 1: Partion Key somente (HASH)
+
+  * Deve ser unico para cada item
+
+  * Deve ser "diverse" para que o dado possa ser distribuido
+
+    **Exemplo:** user_id para una tabela de usuarios
+
+* Opção 2: Partion Key + Sorte Key
+
+  * A combinação deve ser única
+
+  * Dados são agrupados por Partion Key
+
+  * Sorte Key == Range key
+
+    **Exemplo:** tabela jogos_usuario
+
+    * id_usuario para Partion Key
+    * id_jogo para Sort Key
+
+## DynamoDB - Taxa de transferência provisionada
+
+* Tabela deve ter provisionamento de capacidade de unidades para leitura e escrita
+* Unidade de Capacida de Leitura (RCU): taxa de transferência para leitura
+* Unidade de Capacidade de Escrita (WCU): taxa de transferência para escrita
+* Opção para configurar o escalonamento automático da taxa de transferência para atender à demanda
+* O rendimento pode ser excedido temporariamente usando "crédito estourado/burst credit"
+* Se o crédito estourado/burst credit estiver vazio, acontecerá um erro de "ProvisionedThroughputException"
+* Para esse caso de "ProvisionedThroughputException" é aconcelhável realizar uma nova tentativa com exponentilal back-off retry
+
+### WCU
+
+* Uma unidade que reprecidade a capacidade de uma escrita por segundos de um item é de tamanho de 1KB
+* Se um item é maior do que 1KB, mais WCU serão consumidas
+  * **Exemplo 1:** escrever 10 objetos por segundo de 1KB cada, item é > 2, então 2 * 10 = **20 WCU** serão necessárias
+  * **Exemplo 2:** escrever 6 objetos por segundo de 4.5 KB cada, item é > 6 * 5 (***arredondado 4.5***) = **30 WCU** serão necessárias
+  * **Exemplo 3:** escrever 120 objetos por minuto de 2 KB cada, (120/60) = 2 * 2 = **4 WCU** serão necessários
+
+### Leitura Fortmente Consistente  VS Eventualmente Consistente
+
+* **Eventualmente Consistente**: Se nós formos ler após escrita, possivelmente será retornado algo inesperado, devido a replicação
+* **Fortemente Consistente:** Se nós formmos ler após escrita, irá obter o dado correto
+* **Por padrão:** DynamoDB utiliza de ***Consistencia Eventual***, porém ***GetItem***, ***Query & Scan*** provém um parametro ***"ConsistentRead"*** que poderá ser alterado para **True**.
+
+### RCU
+
+* Uma Capacidade de Unidade de Leitura (RCU) representa **uma** ***leitura fortemente consistente*** por segundo, or **duas** ***leituras eventualmente consistentes*** por segundo, para um item de tamanho de ***4KB***.
+* Se um item tem mais do que ***4KB***, mais RCU serão consumidas
+* **Exemplo 1:** 10 strongly consistent reads per second of 4 KB each > 10 * (4/4) = **10 RCU** 
+* **Exemplo 2:** 16 eventually consistent reads per second of 12 KB each > (16 * (12/4)) / 2 = (16 * 3) / 2 =  **24 RCU**
+* **Exemplo 3:** 10 strongly consistent reads per second of 6 KB each > 10 * (6/4) = 10 * 2 (rounded) = **20 RCU**
+
+## Partições internas
+
+* Dado é divido em partições
+* Chave das partições passam por um algoritmo de hashing interno que conhece para qual partição o item deverá ser inserido
+* Para caclular o número de partições
+  * Por capacidade: (TOTAL RCU / 3000) + (TOTAL WCU / 1000)
+  * Por tamanho: Tamanho Total / 10 GB
+  * Total de partições = CEILING(MAX(Capacidade, Tamanho))
+* **WCU  e RCU são espalhados claramento por partições**
+
+## Throttling
+
+* Se excedermos RCU ou WCU será gerado erro **ProvisionedThroughputExceededExceptions**
+* Razões:
+  * Partições Quentes
+  * Item muito grande: RCU e WCU depende do tamanho do item
+  * Chaves Quentes: Uma chave de partição está sendo lido muitas vezes (itens populares)
+* Soluções:
+  * Exponential back-off quando uma exception for encontradada (pronto na SDK)
+  * Distribuir chave de partições tanto for possível
+  * Se for erro de RCU, pode-se utilizar o DynamoDB Accelerator (DAX)
