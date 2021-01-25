@@ -108,3 +108,69 @@
   * Exponential back-off quando uma exception for encontradada (pronto na SDK)
   * Distribuir chave de partições tanto for possível
   * Se for erro de RCU, pode-se utilizar o DynamoDB Accelerator (DAX)
+
+# API Básica
+
+## Escrevendo
+
+* **PutItem** - Escreve um dado no DynamoDB (cria ou altera todos valores)
+
+  * Consome WCU
+
+* **UpdateItem** - Alterado um item no DynamoDB (alteração parcial de valores)
+
+  * Possibilidade de uso de Contadores Atomicos e aumenta-los
+
+* **Escrita Condicional**:
+
+  * Aceita uma escrita / alteração somente se as condições forem respeitadas, caso contrário irá rejeitar
+  * Ajuda no acesso concorrênte para itens
+  * Sem impacto de performance
+
+  
+
+## Excluindo
+
+* **DeleteItem**
+  * Exclui uma linha individualmente
+  * Possibilidade de adicionar exclusão condicional
+* **DeleteTable**
+  * Exclui toda a tabela e seus respectivos itens
+  * Mais rápido que exclusão de DeleteItem sobre todos itens
+
+## Excrita em Lote
+
+* **BatchWriteItem**
+  * Acima de 25 **PutItem** e/ou **DeleteItem** em uma chamada
+  * Acima de 16MB de dados escritos
+  * Acima de 400KB de dados por item
+* Evita latência reduzindo o número de chamadas a API ao DynanoDB
+* Operações são realizadas em paralelo para melhor eficiência
+* É possível que parte dos itens falhe, nesse caso terá que realizar um retry aos itens falhados (utilizando o algoritimo de exponential back-off)
+
+## Lendo Dados
+
+* **GetItem**
+  * Leitura baseado no Primary Key
+  * PK = Hash ou HASH-RANGE
+  * Consistência eventual por padrão
+  * Opção de uso de leitura fortemente consistênte (mais RCU - pode demorar um pouco mais)
+  * ***ProjectionExpresion*** pode ser usado para especificar para incluir somente certos atributos
+* **BatchGetItem**:
+  * Acima de 100 itens
+  * Acima de 16MB de dados
+  * Itens são obtidos em paralelo para minimizar a latência
+
+## Query
+
+* **Query** retorna items baseados em:
+  * Valores de PartionKey (**deve possuir operador *=* **)
+  * Valores de SortKey (=, <, <=, >, >=, Between, Bengin) - opcional
+  * Para filtros futuros FilterExpression (filtro realizado no lado do cliente)
+  * **Retornos**
+    * Acima de 1MB de dados
+    * Um número de items especificados no **Limit**
+  * Possibilidade de paginar resultados
+  * Pode realizar consultar(**query**) em tabelas, em index secundários locais, ou um indice secondario global
+
+## Scan
