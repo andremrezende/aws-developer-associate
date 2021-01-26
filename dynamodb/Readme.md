@@ -174,3 +174,79 @@
   * Pode realizar consultar(**query**) em tabelas, em index secundários locais, ou um indice secondario global
 
 ## Scan
+
+* ***Scan*** ineficiente, pois irá retornar todos os valores da tabela
+* Retorna acima de !MB de dados -> utilize paginação
+* Consome muito do RCU
+* Limitar utilizando **Limit** ou reduzindo o tamanho da página de resultado
+* Para performance rápidas, utilize ***parallel scan**:
+  * Multiplas instancias 'scan' multiplas partições ao mesmo tempo
+  * Aumenta o "througput"  e consumo de RCU
+  * Limita o impacto de "scans" paralelos
+* Pode ser usar ***ProjectionExpression*** + ***FilterExpression*** (não altera RCU)
+
+### LSI (Indice Secundário Local)
+
+* Chave de intervalos alternativas para a sua tabela, com hash key
+* Até **5 ** índices secundários locais por tabela
+* A chave de classificação consiste exatamente em um atributo escalar
+* O atributo que você escolher deve ser scalar String, Number ou Binary
+* LSI deverá ser definido ao criar a tabela
+
+### GSI (Indice Secundário Global)
+
+* Para acelerar as consultas sobre atributos não-chave, use um GSI
+* GSI = partion key + optional sort key
+* O índice é uma nova "tabela" e podera projetar atributos nela
+* A partion key e a sort key são sempre projetadas (KEYS_ONLY)
+* Pode projetar atributos extras para proteger (INCLUDE)
+* Pode utilizar todos os atributos da tabela principal (ALL)
+* Deve definir RCU / WCU para o indice
+* Possibilidade de adicionar / modificar GSI (não LSI)
+
+## Índices e Throttling
+
+### GSI:
+
+* **Se a escrita for "throttled" na GSI, a tabela principal irá ser "throttled"**
+* Mesmo se o WCU da tabela principal estiver correto
+* Escolhar sua chave de partição GSI com cuidado!
+* Atribuir sua capacidade de WCU com cuidado
+
+### LSI:
+
+* Utiliza de WCU e RCU da tabela principal
+* Nenhuma consideração especial para thottling
+
+## Concorrência
+
+* DynamoDB tem uma funcionalidae especial chamada "Conditional Update / Delete"
+* Que significa que você pode garantir que um item não mudou antes de altera-lo
+* Isso torna o DynamoDB um banco de dados com ***optimistic locking / concurrency***
+
+## DAX
+
+* DAX = DynamoDB Accelerator
+
+* Não é necessário reescrever a aplicação para cachear
+
+* As gravações passam do DAX para o DynamoDB
+
+* Latência de microssegundos para leitura e consultas em cache
+
+* Resolve o problema de Hot Key(muitas leituras)
+
+* 5 minutos de cache por padrão
+
+* Até 10 nós no cluster
+
+* Multi AZ (míimo de 3 nós recomendados para produção)
+
+* Seguro (criptogratia em repouso com KMS, VPC, IAM, ClouTrail, ...)
+
+  
+
+### DAX  VS ElasticCache
+
+* DAX é melhor localizado por objetos individuais no cache, Query / Scan cache
+* ElasticCache é melhor para utilização avançadas, como Agregação de Resultados (Aggregation Results)
