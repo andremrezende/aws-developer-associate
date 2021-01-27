@@ -250,3 +250,29 @@
 
 * DAX é melhor localizado por objetos individuais no cache, Query / Scan cache
 * ElasticCache é melhor para utilização avançadas, como Agregação de Resultados (Aggregation Results)
+
+## Streams
+
+* Alteração no DynamoDB (CUD) podem acabar em Stream
+* Esse Stream pode ser lito por Lambda & instancias EC2:
+  * Reações para alterar em tempo real (email de boas vindas para novos usuários)
+  * Analytics
+  * Inserir no ElasticSearch
+  * Criar tabelas / views derivadas
+* Pode implementar replicação por região cruzada
+* Possui 24h de retenção
+* Escolha as informações que serão gravadas no fluxo sempre que os dados na tabela forem modificados:
+  * KEYS_ONLY - Somente os atributos chaves foram modificados
+  * NEW_IMAGE - O item inteiro, ele aparecerá após estar modificado
+  * OLD_IMAGE - O item inteiro, ele aparecera antes de estar modificado
+  * NEW_AND_OLD_IMAGES - Ambos os novas e velhas images do item
+* São feitos de shards, como o Kinesis Data Streams
+* Você não provisiona shards, é realizado pela AWS
+* ***Os registros não são populados retroativamente após estar habilitado***
+
+### Streams & Lambda
+
+* Precisa definir um ***Event Source Mapping*** para ler do Streams
+* Precisa garantir que a função Lambda tem a permissão apropriada
+* ***A Lambda é invocada sincroniamente***
+* 
