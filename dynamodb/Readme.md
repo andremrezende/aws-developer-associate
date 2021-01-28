@@ -275,4 +275,106 @@
 * Precisa definir um ***Event Source Mapping*** para ler do Streams
 * Precisa garantir que a função Lambda tem a permissão apropriada
 * ***A Lambda é invocada sincroniamente***
-* 
+
+## TTL
+
+* Automaticamente exclui um item após o a data/tempo de expiração
+* Não possui custo extra, exclusão não utiliza de WCU/RCU
+* Operação em "background" pelo serviço do DynamoDB
+* Ajuda a armazenar e gerenciar o tamanho da tabela no tempo
+* Ajuda na aderência em normas regulatórias
+* Items excluidos durante a TTL também são excluidos do GSI / LSI
+* Streams podem ajudar a recuperar items excluídos
+
+## CLI
+
+* Transação = Abilidade de Criar / Alterar / Excluir multiplas linhas em tabelas diferentes ao mesmo tempo
+* É um "all or nothing" tipo de operação
+* Modos de Escrita: Standard e Transacional
+* Modos de Leitura: Consistência Eventual, Consistência Forte, Transacional
+* Consome 2x de WCU / RCU
+* ***Uma transação é uma scrita para ambas tabelas, ou nenhuma***
+
+## Session State Cache
+
+* É comum usar o DynamoDB para amarzenar estados da sessão
+
+### DynamoDB vs ElasticCache
+
+* ElasticCache é um memória, mas DynamoDB é servless
+* Ambos são armazenados como chave/valor
+
+### DynamoDB vs EFS
+
+* EFS é anexo a uma instância de EC2 como um drive de rede
+
+### DunamoDB vs EBS & Instance Store
+
+* EBS & Instance Store pode ser somente usados para cache local, não compartilhado
+
+### DynamoDB & S3
+
+* S3 tem alta latêcia e normalmente não é ideal para objetos pequenos
+
+## Write Sharding
+
+### Escrita Concorrênte
+
+* O último a escrever sobrescreve o primeiro (quando ambos estão ocorrendo em um curto intervalo de tempo de diferença)
+
+### Escrita Conditional
+
+* Normalmente o primeito que escreve irá sobrescrever a condição sobre o segundo a escrever e se ele falhar (corrige o problema de escrita concorrênte)
+
+### Escrita Atômica
+
+* Trabalha com aumento ou decremento de valor, ambas escritas deveriam funcionar
+
+### Escrita em Lote
+
+* Escreve / Altera vários items ao mesmo tempo
+
+## Padrões com S3
+
+### Padrão de Objetos Grandes
+
+* Tem limite de 400 KB por item, então para armazenar grandes arquivos enviar o metadado do S3 para o DynamoDB, então requisitar o dados no DynamoDB e obter o arquivo no S3
+
+### Indexando objetos de metadados  do S3
+
+* Uma escrita no S3, disparar uma Lambda, irá escrever um metadado na tabela do DynamoDB
+
+## Operações
+
+### Limpeza de Tabela
+
+* Opção 1: Scan + Delete > muito devagar, caro e consome RCU & WCU
+* Opçaõ 2: Apagar Tabela + Recriar > rápido, barato e eficiênte
+
+### Cópia de Tabela
+
+* Opção 1: Usar AWS DataPipeline (utiliza EMR)
+* Opção 2: Criar um backup e restaurar o backup em uma nova tabela (toma um pouco mais de tempo)
+* Opção 3: Scan + Write > escrever seu próprio código
+
+## Segurança
+
+* VPC Endpoint disponiveis para acessar DynamoDB sem internet
+* Controle completamente gerenciado pelo IAM
+* Escriptação por Rest utiliza KMS
+* Escriptação em transito utiliza SSL / TSL
+
+## Funcionalidade de Backup e Restore
+
+* Aponta para um tempo de restauração como RDS
+* Sem impacto de performance
+
+## Tabelas Globais
+
+* Multi região, completamente replicado, alta performance
+
+**Amazon DMS pode ser usado para migrar para o DynamoDB (do Mongo, Oracle, MySQL, S3, outros...)**
+
+**Pode ser inicializado o DynamoDB na sua máquina local / standalone**
+
+***
