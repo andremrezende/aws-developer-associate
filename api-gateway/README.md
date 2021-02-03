@@ -90,4 +90,62 @@
 
 ## API Gateway Swagger / Open API spec
 
-* 
+* Maneira comum de definir APIs REST, usando definição de API como código
+* Importação de Swagger / Especificação OpenAPI 3.0 para o API Gateway
+  * Method
+  * Method Request
+  * Integration Request
+  * Method Response
+  * AWS extensions para API Gateway e configuração para uma opção simples
+* Pode exportar a API como Swagger / OpenAPI spec
+* Swagger pode ser lido por YAML ou JSON
+* **Usar Swagger par gerar SDK para aplicações**
+
+## Cacheando reposta de API
+
+* Ajuda a reduzir o número de chamadas requisitadas para o backend
+* O padrão de **TTL** são de 300 segundos (*min 0s, max: 3600s*)
+* Caches são definidos por segundo
+* Possibilidade de sobrescrever as configurações de cache **por método**
+* Opção de encriptação
+* Capacidade entre *0.5GB e 237GB*
+* Cache é caro, utilizado em produção, podendo não fazer sentido em ambientes de dev ou test
+
+### Invalidação de Cache
+
+* Habilitar para descartar todo o cache (inválidando) imediatamente
+* Clientes podem invalidar cache no header: **Cache-Control: max-age=0** (com a autorização do IAM)
+* Você não pode impor uma politica de InvalidateCache (ou requisitar uma autorização por checkbox no console), poist qualquer cliente pode invalidar a API cache
+
+## Planos de Uso & API Keys
+
+Se você quiser monetizar sua API para seus clientes
+
+* Planos de Uso:
+
+  * Quem acessa ou o mais estágios de API e seus respectivos métodos
+  * Quanto custa e quão rápido eles podem acessa-la
+  * API Keys são usados para identificar e metrificar acessos
+  * Configurar limites de estrangulamento e de cota que são forçados a utilizar para cada cliente individual
+
+* API Keys:
+
+  * String alfanumércia para distribuir ao seus clientes
+  * Ex: WBjxaASDNQwebkiasdn4198Nkasdqweu859123FN
+  * Pode ser usado para controle de acesso ao plano
+  * Limites de estrangulamento podem ser aplicados para API keys
+  * Limites de cotas são definidos como o número máximo total de requisições
+
+  ### Ordem correta para API Keys
+
+  * Para configurar um plano de uso:
+    1. Configurar uma ou mais APIs, configurar os métodos que requerem o uso de chave e "deployar" para um estágio
+    2. Gerar ou importar uma chave para distribuir para os desenvolvedores de aplicações (clientes) quem irão utilizar a API
+    3. Criar um plano de uso como desejado definindo limites de estrangulamento e cota
+    4. **Associdar os estágios de API e chaves com o plano de uso**
+    5. ao chamcar a API deverá fornecer no cabeçalho da requisição o **x-api-key**
+
+  ## Logging e Rastreamento
+
+  * CloudWatch Logs:
+    * 
