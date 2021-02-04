@@ -148,4 +148,36 @@ Se você quiser monetizar sua API para seus clientes
   ## Logging e Rastreamento
 
   * CloudWatch Logs:
-    * 
+    
+    * Habilita logging no nível de estágio (com o Log Level)
+    * Pode sobrescrever configurações da base de API (ex: ERROR, DEBUG, INFO)
+    * Log contém informação sobre corpo da requisição e reposta
+    
+  * X-Ray:
+  
+    * Habilita trace para obter informação extra sobre requisições do API Gateway
+    * X-Ray API Gateway + AWS Lambda fornece uma imagem completa
+  
+  * CloudWatch Metricas:
+  
+    * Métricas são estágios, possibilidade de habilitar métricas detalhadas
+    * **CacheHitCount & CacheMissCount:** eficiencia do cache
+    * **Count:** Núméro total de requisições na API dado um periodo
+    * **IntegrationLatency:** O tempo entre o API Gateway transmitir uma requisição para o backend e quando ele recebe uma resposta do backed
+    * **Lantency:** o tempo quando o API Gateway recebe uma requisição do cliente e o retorno da resposta do cliente. A latência inclue a integração de latência e outra sobrecarga de API Gateway
+    * **4XXError (client-side) & 5XXError (server-side)**
+  
+    ## Estrangulamento (Throttling)
+
+* **AccountLimit**
+
+  * Estrangulamento de requisição ao API Gateway é de 10000 reps através de toda API
+  * Limites iniciais podem ser aumentados através de solicitações
+  * Em caso de estrangulamento => **429 Too Many Requests** (retriable error)
+  * Pode ser configurado o **Stage limit & Method limits** para melhorar performance
+  * Também é possível definir planos de uso para estrangulamento por cliente
+  * **Como na concorrência de Lambda, uma API é sobrescrita, se não tiver limitada, e pode causar estrangulamento de outras APIs**
+
+  ## Errors
+
+  * 4xx Erros do Cliente
