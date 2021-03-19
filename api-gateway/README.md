@@ -181,3 +181,83 @@ Se você quiser monetizar sua API para seus clientes
   ## Errors
 
   * 4xx Erros do Cliente
+    * 400: Requisição errada
+    * 403: Acesso negado, WAF filtered
+    * 429: Cota excedida, Throttle
+  * 5xx Erro no Servidor
+    * 502: Bad Gateway Exception, normalmente por uma incompatibilidade do retorno da integração proxy Lambda e ocasionalmente invoações fora de ordem por carregamentos pesados
+    * 503: Serviço Indisponivel
+    * 504: Falha de Integração - tempo estourado na requisição do Endpoint (**API Gateway request time out after 29 seconds maximum**)
+
+## CORS
+
+* CORS deve ser habilitado quando receber uma chamada de API de outro dominio
+* O OPTIONS deve conter os seguintes cabeçalhos:
+  * Access-Control-Allow-Methods
+  * Access-Control-Allow-Headers
+  * Access-Controle-Allow-Origin
+* Pode ser habilitado pelo console
+
+## Segurança
+
+### Permissões IAM
+
+* Criar uma politica de autorização IAM e anexar ao Usuário / Role
+* **Authentication = IAM | Authorization = IAM Policy **
+* Boa prática prover acesso dentro da AWS (EC2, Lambda, IAM, ...)
+* Aproveite o recurso "Sig v4" em que as credenciais IAM estão nos cabeçalhos
+
+### Resource Policies
+
+* Resource policies (semelhant ao Lambda Resource Policy)
+* **Permite Cross Account Access (combinado com IAM Security)**
+* Permite por um endereço IP especifico
+* Permite por um Endpoint de VPC
+
+### Cognito User Pools
+
+* Cognito gerencia completamente o ciclo de vida do usuário e expira o token automaticamente
+* API Gateway verificar automáticamente a identidade de AWS Cognito
+* Nenhuma customização é requerida
+* **Authentication = Cognito User Pools | Authorization = API Gateway Methods**
+
+### Lambda Authorizer (formalmente Autorização Customizada)
+
+* **Token-based authorized** (bearer token) - ex - JWT (JSON Web Token) ou OAuth
+* Baseado um parâmetro d requisitado Lambda authorizer (**headers, query string, stage var**)
+* Lambda deve retorna uma IAM policy para o usuário, o resultado da policy é cacheado
+* **Authentication = External | Authorization = Lambda function**
+
+## Resumo
+
+* **IAM**
+  * Bom para usuários / roles que já estão na conta da AWS , resource policy de contas de outro dominio
+  * Trata autenticação e autorização
+  * Aproveita o recurso do Signature v4
+* **Autorização Customizada**
+  * Bom para implementação de tokens fora da AWS
+  * Muito flexibvel em termos do que é retornado do IAM policy
+  * Tratamento de verificação de autenticação + autorização na função Lambda
+  * Pga por invocação de Lambda, resultados são cacheado
+* **Cognito User Pool**
+  * Você gerência seu próprio pool de usuários (pode ser utilizado pelo Facebook, Google login, outros...)
+  * Sem necessidade de qualquer código customizado
+  * Dever ser implementado autorização no backend
+
+## HTTP API Vs REST API
+
+* ## HTTP APIs
+  * Baixa latência, proxy econômico, API de proxy HTTP e integração privada(sem mapeamento de dados)
+  * Suporte a autorizações OIDC e OAuth 2.0 com suporte integrado para CORS
+  * Sem planos de uso e chave de API
+
+* ## Rest APIs
+  * Todas recursos vistos antes (exceto NativeOpenID Connect / OAuth 2.0)
+
+* ## WebSocket API
+  * O que é WebSocket?
+   * Comunicatação iterativa em dois-caminhos entre o browser do usuário e o servidor
+   * Servidor pode publicar informação para o cliente
+   * Permite caso de uso com aplicativos statefull
+  * Web Socket APIs são frequentemente usados em aplicações real-time tais como chats, plataformas de colaboração, jogos multiplayers e plataformas de trading
+  * Trabalha com Serviços AWS(Lambda, DynamoDB) or endpoint HTTP
