@@ -20,3 +20,29 @@
 
 * Para usar  MFA com o CLI, você deverá criar uma sessão temporaria. Para fazer, execute a chamada da API STS GetSessionToken
   * **aws sts -getsession-token** --serial-number arn-of-the-mfa-device --token-code code-from-token --duration-seconds 3600
+
+#### AWS SDK
+
+* Quando se deseja iteragir diretamente da aplicação sem usar o CLI, você pode usar uma SDK (Software Development KIT)
+* Utiliza SDK quando chamar diretamente um serviço da AWS tal como DynamoDBB
+* Se não especificar a região padrão, então us-east-1 será utilizada
+* É recomendado usar a credencial padrão:
+  * Funciona perfeitamente com credenciais em ~/.aws/credentials (somente na sua máquina / local)
+  * Credenciais de perfil de instância com papéis IAM 
+  * Variáveis de ambiente : AWS_ACCESS_KEY_ID, AWS_SECRET_ACCESS_KEY
+  * Nunca armazene as credenciais da AWS no seu código fonte
+* Qualquer API que falha por causa de muitas chamadas precisão tratar com Eponential Backoff
+  * Aplicar para avaliar o limite de API
+  * Mecanismo de retry incluso em chamadas de SDK API
+
+### AWS Limites (Quotas)
+
+* **API Rate Limits**
+  * Descreve instancias de API para EC2 com um limite de 100 chamadas/s
+  * GetObject no S3 tem um limite de 5500 GET/s
+  * Para Intermittent Errors: implementar Exponential Backoff
+  * Para Consistent Errors: requisitar aumento de limite de API thorttling
+* **Service Quotas (Limites de Serviço)**
+  * Executado sobre instância sobre demanda Standard: 1152vCPU
+  * Pode ser requisitado para aumentar o limite com um ticket
+  * Pode ser requisitado para aumentar a quota usando o Service Quotas API
