@@ -64,6 +64,108 @@
   * Comentários em eventos de Commit 
   * CloudWatch Event Rules vai para um SNS Topic
 
+## CodePipeline
+
+* Integrar continua
+
+* Visual Workflow
+
+* Source: GitHub / CodeCommit / AWS S3
+
+* Build: CodeBuild / Jenkis / Etc...
+
+* Teste de Carga: ferramentas de 3drs
+
+* Deploy: AWS CodeDeploy / Beanstalk/ CloudFormation / ECS
+
+* Stages:
+
+  * Cada stage pode ter **ações sequenciais e/ou paralelas
+  * Exemplos: Build / Teste / Deploy / Load Test / etc..
+  * Aprovação Manual pode ser definida em qualquer stage
+
+  ### AWS CodePipeline Artifacts
+
+  * Cada Stage da pipeline pode criar "artifacts"
+  * Artifacts são armazenados no Amazon S3 e passado para o próximo Stage
+
+  ### CodePipeline Troubleshooting
+
+  * Alterações no Stages acontecem **AWS CloudWatch Events**, que podem retornar uma notificação SNS
+    * Ex: pode criar eventos por falhar uma pipeline
+    * Ex: pode criar eventos por cancelar um stage
+  * Se um Stage falhar, a pipeline interrompe e você pode obter informações no console
+  * AWS CloudTrail pode ser usado para auditar chamadas de AWS API
+  * Se um Pipeline não pode executar uma ação, garanta que o "IAM Service Role" anexo tem as permições necessárias (IAM Policy)
+
+## CodeBuild
+
+* Serviço de "build" altamente gerenciável
+
+* Alternativa para outras ferramentas de build, como o Jenkis
+
+* Escalonamento continuo (sem servidor para gerênciar ou provisionar - sem queue build)
+
+* Paga por uso: o tempo que leva para completar o build
+
+* Deixar disponíbilizado Docker para reproduzir build
+
+* Possibilidade de extender capacidade de sua própria imagem de Docker
+
+* Segurança: Integração com o KMS para encriptação de artifatos de build, IAM para permissões de build, VPC para segurança de rede e CloudTrail para logar chamadas de API
+
+* Instruções de build dedem ser definidas no código do diretório root (buildspec.yml)
+
+* Saída de logs para CloudWatch e S3
+
+* Métricas podem ser monitoradas no CodeBuild statics
+
+* Uso de CloudWatch Alarms para detectar falhas no builds e disparar notificações (SNS incluída)
+
+* CloudWatch Events / AWS Lambda e Glue
+
+* É possível executar o CodeBuild na máquina local para investigar erros
+
+* Build podem ser definidos dentro de CodePipeline or dentro do próprio CodeBuild
+
+* **CodeBuild suporta muitos ambiente nativamente, mas em caso de ambiente não suportados, é possível gerar uma imagem Docker e executar em qualquer ambiente que deseje**
+
+  
+
+  ### CodeBuild BuildSpec
+
+  * Deve ser especificado o arquivo buildspec.yml no diretório root
+  * Definir as variáveis de ambiente:
+    * Plaintext variables
+    * Secure Secrets: use SSM Parameter Store
+  * Phases:
+    * Install: instala todas dependencias que você deseja para construir seu build
+    * Pre_build: executa comandos antes de iniciar o build
+    * **Build**: comandos de build
+    * Pos_build: finaliza o build (compactação de zip por exemplo)
+  * Artifacts: O que for enviado para o S3 (encriptado por KMS)
+  * Cache: Arquivos para cache (normalmente dependencias) para o S3 para aumentar a velocidade build
+
+  ### CodeBuild Local Build
+
+  * No caso de investigar problemas de logs é possível executa-lo localmente no seu desktop
+    * Necessário ter Docker e CodeBuild Agent instalados
+
+  ### CodeBuild na VPC
+
+  * Pode padrão, CodeBuild containers são lançados forada da VPC. Então, não pode acessar recursos de uma VPC
+  * É possível especificar uma configuração de VPC (VPC ID, Subnet ID, Security Group ID), e então acessar recursos da VPC
+  * Casos de uso: testes de integração, consulta a dados, load balancers internos
+
+  ### Segurança CodeBuild
+
+  * Para acessar recursos na sua VPC, especificar uma configuração de VPC no seu CodeBuild
+  * Segurança no CodeBuild:
+    * Variáveis de ambiente podem referenciar parâmetros armazenados como parâmetros
+    * Variáveis de ambiente podem referenciar parâmetros no SSM
+
+
+
 ## AWS CodeDeploy
 
 * Deve estar com o CodeDeploy Agent executando
