@@ -109,9 +109,38 @@
 
 ## EBS Multi-Attach - io1/io2 family
 
-* Anexar o mesmo volume de EBS para multiplas instâncias de EC2 na mesma AZ
+* Anexar o mesmo volume de EBS para múltiplas instâncias de EC2 na mesma AZ
 * Casa instância pode ter acesso completo de leitura/escrita para o volume
 * Caso de Uso:
-  * Arquivamento de alplicações de alta disponibilidade em um cluster Linux  (ex: Teradata)
+  * Arquivamento de aplicações de alta disponibilidade em um cluster Linux  (ex: Teradata)
   * Aplicação devem gerencias as operações concorrênte de escrita
 * Deve usar um sistema arquivo cluster-aware (não XFS, EX4, etc...)
+
+## EFS - Elastic File System
+
+* Gerênciado por NFS (network file system) e pode ser "montado" em vários EC2
+* EFS tabalha com instâncias de EC2 em muli-AZ
+* Alta disponibilidade, escalável, caro (3x gp2) paga por uso
+* Caso de uso: gerenciamento de conteúdo, servidor web, compartilhamento de dados, Wordpress
+* Utiliza protocolo NFSv4.1 
+* Utiliza security group para constrola o acesso para o EFS
+* Compatível com Linux baseado AMI (não Windows)
+* Encriptaçãopor rest usando KMS
+* POSIX file system (~Linux) que tem uma arquivo padrão de API
+* File system escala automaticamente, paga por uso, sem planos de capacidade
+
+### Performance & Classe de Armazenamento
+
+* Escalonamento de EFS:
+  * 1.000s de clientes NFS concorrênte, 10GB+/s throughput
+  * Crescre para Petabyte automaticamente
+* Modo de Performance (tempo de criação de configuração de EFS)
+  * General purpose (padrão): latência sensível (web server, CMS, etc...)
+  * Max I/O - alta latência, throuighput, paralelismo alto (big data, processamento de media)
+* Modo de throughput
+  * Bursting (1 TB = 50 MiB/s + burst crescente de 100MiB/s)
+  * Provisionado: configura seu throuput para o tamanho de armazenamento, ex: 1 GiB/s para 1TB de armazenamento
+* Storage Tiers (funcionalidade de gerenciamento de ciclo de vida - mover arquivo depois de N dias)
+  * Padrão: para arquivos acessado frequentemente
+  * Acesso infrequente (EFS-IA): custo para recuperar arquivos, baixo preço para armazenamento
+
