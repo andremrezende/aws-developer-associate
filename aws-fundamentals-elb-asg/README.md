@@ -144,3 +144,22 @@
   * Padrão: para arquivos acessado frequentemente
   * Acesso infrequente (EFS-IA): custo para recuperar arquivos, baixo preço para armazenamento
 
+## EBS vs EFS - Elastic Block Storage
+
+* Volume EBS:
+  * pode ser anexo somente a uma única instância por vez
+  * somente dentro da mesmo nível de AZ
+  * gp2: I/O aumenta se o disco aumenta de tamanho
+  * io1: pode aumentar o I/O independentemente 
+* Para migrar um volume de EBS através de AZ
+  * Tirar um snapshot
+  * Restaura o snapshot em outra AZ
+  * Backips de EBS usam I/O e não deveriam rodar até que sua aplicação aceita muito do tráfego
+* Volume de uma instância EBS podem ser terminadas por padrão de uma instância EC2 for terminada (é possível desabilitar ela)
+
+* EFS:
+  * Montar em mais de 100s instâncias através de AZ
+  * Compartilha arquivos
+  * Somente para Instância Linux (POSIX)
+  * Tem um preço mais alto comparado ao EBS
+  * Utilizar EFS-AI para baratear os custos
