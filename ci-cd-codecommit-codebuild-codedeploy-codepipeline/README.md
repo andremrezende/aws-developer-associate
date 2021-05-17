@@ -164,24 +164,30 @@
     * Variáveis de ambiente podem referenciar parâmetros armazenados como parâmetros
     * Variáveis de ambiente podem referenciar parâmetros no SSM
 
-
-
 ## AWS CodeDeploy
 
 * Deve estar com o CodeDeploy Agent executando
+
 * Envia o arquivo *appspec.yml*
+
 * Aplicações são baixadas do Github ou do S3
+
 * EC2 executará as instruções de deploy
+
 * CodeDeploy Agent reportará sucesso ou falha no deploy da instância
+
 * Pode ser agrupado por grupos (dev / test / prod)
+
 * **Pode ser usado Blue / Green somente em instâncias EC2 (não on premise)**
+
 * Suporte para deploys de AWS Lambda
-* Não provêm recursos, utiliza os existêntes
-  * ***AWS CodeDeply Componentes Primarios:***
+
+* Não provêm recursos, utiliza os existentes
+  * ***AWS CodeDeploy Componentes Primários:***
     * Application: nome único
     * Compute platform: EC2/ On Premises ou Lambda
     * Deployment configuration: Regras de deploy para sucesso ou falha
-      * *EC2/On Premises: você pode especificar o número minimo de instâncias healthy para deploy*
+      * *EC2/On Premises: você pode especificar o número mínimo de instâncias healthy para deploy*
       * *AWS Lambda: especificar como o trafico é roteado para atualização de versões de Lambda*
     * Deployment group: agrupar por instâncias "taguiadas" (permite realizar deploy gradualmente)
     * Deployment type: Deploy in-place or Blue/green deploy
@@ -189,10 +195,55 @@
     * Application Revision: código aplicação + appspec.yml
     * Service Role: Regra para CodeDeploy performar o que é necessário
     * Target revision: Destino do deploy da versão da aplicação
-
-## AppSpec
-
+  
+  
+  
+  ### AppSpec
+  
 * File section: como copiar da origem do S3 / Github para o filesystem
+
 * Hooks: lista de instruções para deploy uma nova versão (pode ter timeouts). A ordem é:
   * ApplicationStop -> DownloadBundle -> BeforeInstall -> Install -> AfterInstall -> ApplicationStart -> **ValidateService** -> BeforeAllowTraffice -> AllowTraffic -> AfterAllowTrafic
+
+  ### Deployment Config
+
+  * Configs:
+
+    * One at a time: uma instância por um tempo, se uma instância falhar, deployment é interrompido
+
+    * Half at a time: 50%
+
+    * All at once: rápido mas não é "saudável", downtime. Bom para ambiente DEV
+
+    * Custom: min de host saudável = 75%
+
+    * Canary:
+
+      * Falhas:
+        * Instancias ficam no "estado de falha"
+        * Novos deployments irão ser deployados primeiros nas instâncias "falhadas"
+        * Rollback: redeploy versões velhas ou habilitar rollbacks automáticos para falhas
+      * Destino de Deploys:
+        * Lista de instâncias EC2 com tags
+        * Diretamente no ASG
+        * Mix de ASG / Tags podendo deployar por segmentos
+        * Customização por scripts na variável DEPLOYMENT_GROUP_NAME
+
+      ### Rollbacks
+
+      * Pode ser especificado opções de automação de rollback
+      * Roll back quando um deployment falha
+      * Roll back quando um alarme é encontrado
+      * Disable rollbacks -> Não realiza rollbacks para este deployment
+
+  ## CodeStar
+
+  * É uma solução integrada para reagroupar: GitHub, CodeCommit, CodeBuild, CodeDeploy, CloudFormation, CodePipeline, CloudWatch
+  * Ajuda a rapidamente criar um CI/CD para projetos do EC2, Lambda, Beanstalk
+  * Suporta linguagens: C#, Go, HTML5, Java, Node.js, PHP, Phyton, Ruby
+  * Integração com ferramentas de controle: JIRA / GitHub Issues
+  * Possui integração com Cloud9 para obter uma Web IDE (não para todas regiões)
+  * Um dashboard para visualizar todos os componentes
+  * Serviço grátis, paga somente por serviços e recursos
+  * Customização Limitada
 
