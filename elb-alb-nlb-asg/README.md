@@ -151,3 +151,15 @@
 * Caso de uso: certifique que o usuário não perca os dados da sessão
 * Habilitar "stickiness" pode deixar desbalanceados as instâncias do EC2
 
+## Cross-Zone load Balancing
+
+* ALB:
+  * Sempre ligado (não pode ser desligado)
+  * Sem cobrança para dados inter AZ
+* NLB:
+  * Desabilitado por padrão
+  * Paga por uso de dados internos AZ se habilitado
+* CLB:
+  * Através do console -> Ligado por padrão
+  * Através do CLI / API -> Desligado por padrão
+  * Sem cobrança para dados internos a AZ se ligado
