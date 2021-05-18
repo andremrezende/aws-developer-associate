@@ -163,3 +163,34 @@
   * Através do console -> Ligado por padrão
   * Através do CLI / API -> Desligado por padrão
   * Sem cobrança para dados internos a AZ se ligado
+
+## SSL/TLS
+
+* Um certificado SSL permite transitar entre cliente e load balancer e ser encriptado em transito (in-flight encryption)
+* SSL refere-se para uma camada de socket segura, parado para coneções encriptadas
+* TLS certifica que são usados, mas para pessoas ainda refere-se a SSL
+* Certificado públicos de SSL são usados por Autoridades de Certificado (CA)
+* Comodo, Symantec, GoDaddy, GlobalSign, Digicert, Letsencrypt, outros...
+* Certificado SSL tem uma data de expiração e devem ser renovados se não configurados
+
+### Load Balancer - Certificados SSL 
+
+* Load Balancer utiliza um certificado X.509 (SSL/TLS provém certificado)
+* Pode gerênciar certificados utilizando ACM (AWS Certificate Manager)
+* Como alternativa, você pode fazer upload de seu próprio certificado
+* HTTPS listener:
+  * Pode especificar um certificado padrão
+  * Adicionar uma lista de certificados opcionais para suportar multiplos dominios
+  * Clientes pode usar SNI (Server Name Indication) para especificar o hostname que eles buscam
+  * Habilidade para especificar uma politica de segurança para velhas versões de SSL / TLS  (legacy clientes)
+
+## SSL - Server Name Indication (SNI)
+
+* SNI resolve o problema de multiplos certificados SSL dentro do servidor web (para servir múltiplos websites)
+* É um "novo" protocolo, e requer um cliente para **indicar** o hostname que o servidor destino no SSL inicial de handshake
+* O servidor irá procurar o certificado correto e retorna um padrão
+
+**NOTA:**
+
+* Somente funciona em ALB & NLB (nova geração), CloudFront
+* Não funciona com o CLB (velha geração)
