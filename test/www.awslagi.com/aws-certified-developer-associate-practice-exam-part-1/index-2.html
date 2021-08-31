@@ -1,0 +1,959 @@
+<!DOCTYPE html>
+<html lang="en-US">
+   <meta http-equiv="content-type" content="text/html;charset=UTF-8" />
+   <head>
+      <meta charset="utf-8">
+      <!--[if IE]>
+      <meta http-equiv='X-UA-Compatible' content='IE=edge,chrome=1'>
+      <![endif]-->
+      <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+      <link rel="profile" href="http://gmpg.org/xfn/11"/>
+      <link rel="pingback" href=""/>
+      <link rel="shortcut icon" href="../../media.awslagi.com/2019/10/31113732/15.png" type="image/x-icon"/>
+      <link rel="apple-touch-icon-precomposed" href="../../media.awslagi.com/2020/05/08181230/awslagi.com-logo.png">
+      <link rel="apple-touch-icon-precomposed" sizes="114x114" href="../../media.awslagi.com/2020/05/08181230/awslagi.com-logo.png">
+      <link rel="apple-touch-icon-precomposed" sizes="72x72" href="../../media.awslagi.com/2020/05/08181230/awslagi.com-logo.png">
+      <link rel="apple-touch-icon-precomposed" sizes="144x144" href="../../media.awslagi.com/2020/05/08181230/awslagi.com-logo.png">
+      <meta name='robots' content='index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1'/>
+      <link media="all" href="../wp-content/cache/autoptimize/css/autoptimize_65418fb62dab720bff9865a0c10b4e2d.css" rel="stylesheet"/>
+      <title>AWS Certified Developer Associate Practice Exam Part 2</title>
+      <meta name="description" content="Part 1 in series AWS Certified Developer Associate Practice Exam"/>
+      <link rel="canonical" href="index.html"/>
+      <meta property="og:locale" content="en_US"/>
+      <meta property="og:type" content="article"/>
+      <meta property="og:title" content="AWS Certified Developer Associate Practice Exam Part 2"/>
+      <meta property="og:description" content="Part 1 in series AWS Certified Developer Associate Practice Exam"/>
+      <meta property="og:url" content="index.html"/>
+      <meta property="og:site_name" content="www.xpto.com"/>
+      <meta property="og:image" content="../../media.awslagi.com/2020/12/18152631/AWS-Certified-Developer-Associate-Practice-Exam.jpg"/>
+      <meta property="og:image:width" content="1455"/>
+      <meta property="og:image:height" content="818"/>
+      <script type="application/ld+json" class="yoast-schema-graph">{"@context":"https://schema.org","@graph":[{"@type":"WebSite","@id":"https://127.0.0.1/#website","url":"https://127.0.0.1/","name":"awslagi.com","description":"AWS Practice Questions","potentialAction":[{"@type":"SearchAction","target":"https://127.0.0.1/?s={search_term_string}","query-input":"required name=search_term_string"}],"inLanguage":"en-US"},{"@type":"ImageObject","@id":"https://awslagi.com/aws-certified-developer-associate-practice-exam-part-4/#primaryimage","inLanguage":"en-US","url":"https://media.awslagi.com/2020/12/18152631/AWS-Certified-Developer-Associate-Practice-Exam.jpg","contentUrl":"https://media.awslagi.com/2020/12/18152631/AWS-Certified-Developer-Associate-Practice-Exam.jpg","width":1455,"height":818,"caption":"AWS Certified Developer Associate Practice Exam"},{"@type":"WebPage","@id":"https://awslagi.com/aws-certified-developer-associate-practice-exam-part-4/#webpage","url":"https://awslagi.com/aws-certified-developer-associate-practice-exam-part-4/","name":"AWS Certified Developer Associate Practice Exam Part 2","isPartOf":{"@id":"https://127.0.0.1/#website"},"primaryImageOfPage":{"@id":"https://awslagi.com/aws-certified-developer-associate-practice-exam-part-4/#primaryimage"},"datePublished":"2021-04-04T15:00:39+00:00","dateModified":"2021-05-14T04:15:16+00:00","author":{"@id":"https://127.0.0.1/#/schema/person/bb4af9a68659340148b720808bf8e3cd"},"description":"Part 1 in series AWS Certified Developer Associate Practice Exam is sharing free with actual exam questions and verified by AWS Cloud Experts.","breadcrumb":{"@id":"https://awslagi.com/aws-certified-developer-associate-practice-exam-part-4/#breadcrumb"},"inLanguage":"en-US","potentialAction":[{"@type":"ReadAction","target":["https://awslagi.com/aws-certified-developer-associate-practice-exam-part-4/"]}]},{"@type":"BreadcrumbList","@id":"https://awslagi.com/aws-certified-developer-associate-practice-exam-part-4/#breadcrumb","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://www.awslagi.com/"},{"@type":"ListItem","position":2,"name":"AWS Certified Developer Associate Practice Exam Part 2"}]},{"@type":"Person","@id":"https://127.0.0.1/#/schema/person/bb4af9a68659340148b720808bf8e3cd","name":"iam.awslagi","image":{"@type":"ImageObject","@id":"https://127.0.0.1/#personlogo","inLanguage":"en-US","url":"https://secure.gravatar.com/avatar/b1d406ba578de982f64ffa8b7ef17501?s=96&r=g","contentUrl":"https://secure.gravatar.com/avatar/b1d406ba578de982f64ffa8b7ef17501?s=96&r=g","caption":"iam.awslagi"}}]}</script> 
+
+      <script type="text/javascript" data-cfasync="false">var em_version='6.2.2';var em_track_user=true;var em_no_track_reason='';var disableStr='ga-disable-UA-79647276-1';function __gaTrackerIsOptedOut(){return document.cookie.indexOf(disableStr+'=true')>-1;}if(__gaTrackerIsOptedOut()){window[disableStr]=true;}function __gaTrackerOptout(){document.cookie=disableStr+'=true; expires=Thu, 31 Dec 2099 23:59:59 UTC; path=/';window[disableStr]=true;}if('undefined'===typeof gaOptout){function gaOptout(){__gaTrackerOptout();}}if(em_track_user){(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)})(window,document,'script','../../www.google-analytics.com/analytics.js','__gaTracker');window.ga=__gaTracker;__gaTracker('create','UA-79647276-1','auto');__gaTracker('set','forceSSL',true);__gaTracker('send','pageview');__gaTracker(function(){window.ga=__gaTracker;});}else{console.log("");(function(){var noopfn=function(){return null;};var noopnullfn=function(){return null;};var Tracker=function(){return null;};var p=Tracker.prototype;p.get=noopfn;p.set=noopfn;p.send=noopfn;var __gaTracker=function(){var len=arguments.length;if(len===0){return;}var f=arguments[len-1];if(typeof f!=='object'||f===null||typeof f.hitCallback!=='function'){console.log('Not running function __gaTracker('+arguments[0]+" ....) because you are not being tracked. "+em_no_track_reason);return;}try{f.hitCallback();}catch(ex){}};__gaTracker.create=function(){return new Tracker();};__gaTracker.getByName=noopnullfn;__gaTracker.getAll=function(){return[];};__gaTracker.remove=noopfn;window['__gaTracker']=__gaTracker;window.ga=__gaTracker;})();}</script> 
+      <link rel='stylesheet' id='dashicons-css' href='../wp-includes/css/dashicons.min9f31.css?ver=5.7.2' type='text/css' media='all'/>
+      <link rel='stylesheet' id='bsf-Defaults-css' href='../wp-content/cache/autoptimize/css/autoptimize_single_36ea4805809e6b690c2f5126a08082979f31.css?ver=5.7.2' type='text/css' media='all'/>
+      <link rel='stylesheet' id='porto-google-fonts-css' href='http://fonts.googleapis.com/css?family=Open+Sans%3A300%2C300italic%2C400%2C400italic%2C600%2C600italic%2C700%2C700italic%2C800%2C800italic%7CShadows+Into+Light%3A300%2C300italic%2C400%2C400italic%2C600%2C600italic%2C700%2C700italic%2C800%2C800italic%7C&amp;ver=5.7.2' type='text/css' media='all'/>
+      <!--[if lt IE 10]>
+      <link rel='stylesheet' id='porto-ie-css'  href='https://www.awslagi.com/wp-content/themes/porto/css/ie.css?ver=5.7.2' type='text/css' media='all' />
+      <![endif]--> 
+      <link rel='shortlink' href='https://www.xpto.com'/>
+   </head>
+   <body class="post-template-default single single-post postid-14333 single-format-standard full blog-1 wp-schema-pro-1.5.1 wpb-js-composer js-comp-ver-4.11.2.1 vc_responsive">
+      <div class="page-wrapper">
+         <section class="page-top page-header-1">
+            <div class="container">
+               <div class="row">
+                  <div class="col-md-12">
+                     <div class=" hide">
+                        <h1 class="page-title">AWS Certified Developer Associate Practice Exam Part 2</h1>
+                     </div>
+                  </div>
+               </div>
+            </div>
+         </section>
+         <div id="main" class="column2 column2-right-sidebar boxed">
+            <div class="container">
+               <div class="row">
+                  <div class="main-content col-md-9">
+                     <div id="content" role="main">
+                        <article class="post post-large post-14333 post type-post status-publish format-standard has-post-thumbnail hentry category-aws-practice-questions tag-aws-developer-associate-practice-questions">
+                           <div class="post-image single">
+                              <div class="post-slideshow owl-carousel">
+                                 <div>
+                                    <div class="img-thumbnail">
+                                       <div class="inner"> <img class="owl-lazy img-responsive" width="1140" height="445" data-src="https://media.awslagi.com/2020/12/18152631/AWS-Certified-Developer-Associate-Practice-Exam-1140x445.jpg" alt="AWS Certified Developer Associate Practice Exam" data-image="https://media.awslagi.com/2020/12/18152631/AWS-Certified-Developer-Associate-Practice-Exam.jpg" data-caption=""/> <span class="zoom"><i class="fa fa-search"></i></span></div>
+                                    </div>
+                                 </div>
+                              </div>
+                           </div>
+                           <div class="post-date"> <span class="day">20</span> <span class="month">Aug</span></div>
+                           <div class="post-content">
+                              <h2 class="entry-title">AWS Certified Developer Associate Practice Exam Part 2</h2>
+                              <div class="entry-content">
+											<p>
+                                                61. An AWS Lambda function must read data from an Amazon RDS MySQL database in a VPC and also reach a public endpoint over the internet to get additional data. Which steps must be taken to
+                                                allow the function to access both the RDS resource and the public endpoint? (Select TWO.)
+                                            </p>
+                                            <p>
+                                                A. Modify the default configuration for the Lambda function to associate it with an Amazon VPC private subnet.<br />
+                                                B. Modify the default network access control list to allow outbound traffic.<br />
+                                                C. Add a NAT Gateway to the VPC.<br />
+                                                D. Modify the default configuration of the Lambda function to associate it with a VPC public subnet.<br />
+                                                E. Add an environmental variable to the Lambda function to allow outbound internet access.
+                                            </p>
+                                            <div class="su-spoiler su-spoiler-style-fancy su-spoiler-icon-chevron su-spoiler-closed" data-scroll-offset="0" data-anchor-in-url="no">
+                                                <div class="su-spoiler-title" tabindex="0" role="button"><span class="su-spoiler-icon"></span>Reveal</div>
+                                                <div class="su-spoiler-content su-u-clearfix su-u-trim">Answer: A C <a href='https://docs.aws.amazon.com/lambda/latest/dg/vpc.html'>https://docs.aws.amazon.com/lambda/latest/dg/vpc.html</a></div>
+                                            </div>
+                                            <p>
+                                                62. A Developer writes an AWS Lambda function and uploads the code in a .ZIP file to Amazon S3. The Developer makes changes to the code and uploads a new .ZIP file to Amazon S3. However,
+                                                Lambda executes the earlier code. How can the Developer fix this in the LEAST disruptive way?
+                                            </p>
+                                            <p>
+                                                A. Create another Lambda function and specify the new .ZIP file.<br />
+                                                B. Call the update-function-code API.<br />
+                                                C. Remove the earlier .ZIP file first, then add the new .ZIP file.<br />
+                                                D. Call the create-alias API.
+                                            </p>
+                                            <div class="su-spoiler su-spoiler-style-fancy su-spoiler-icon-chevron su-spoiler-closed" data-scroll-offset="0" data-anchor-in-url="no">
+                                                <div class="su-spoiler-title" tabindex="0" role="button"><span class="su-spoiler-icon"></span>Reveal</div>
+                                                <div class="su-spoiler-content su-u-clearfix su-u-trim">Answer: B <a href='https://docs.aws.amazon.com/cli/latest/reference/lambda/update-function-code.html'>https://docs.aws.amazon.com/cli/latest/reference/lambda/update-function-code.html</a></div>
+                                            </div>
+                                            <p>
+                                                63. A company is developing an application that will run on several Amazon EC2 instances in an Auto Scaling group and can access a database running on Amazon EC2. The application needs to
+                                                store secrets required to connect to the database. The application must allow for periodic secret rotation, and there should be no changes to the application when a secret changes. What is the
+                                                SAFEST way to meet these requirements?
+                                            </p>
+                                            <p>
+                                                A. Associate an IAM role to the EC2 instance where the application is running with permission to access the database.<br />
+                                                B. Use AWS Systems Manager Parameter Store with the SecureString data type to store secrets.<br />
+                                                C. Configure the application to store secrets in Amazon S3 object metadata.<br />
+                                                D. Hard code the database secrets in the application code itself.
+                                            </p>
+                                            <div class="su-spoiler su-spoiler-style-fancy su-spoiler-icon-chevron su-spoiler-closed" data-scroll-offset="0" data-anchor-in-url="no">
+                                                <div class="su-spoiler-title" tabindex="0" role="button"><span class="su-spoiler-icon"></span>Reveal</div>
+                                                <div class="su-spoiler-content su-u-clearfix su-u-trim">Answer: B</div>
+                                            </div>
+                                            <p>
+                                                64. A Developer needs to design an application running on AWS that will be used to consume Amazon SQS messages that range from 1 KB up to 1GB in size. How should the Amazon SQS messages be
+                                                managed?
+                                            </p>
+                                            <p>
+                                                A. Use Amazon S3 and the Amazon SQS CLI.<br />
+                                                B. Use Amazon S3 and the Amazon SQS Extended Client Library for Java.<br />
+                                                C. Use Amazon EBS and the Amazon SQS CLI.<br />
+                                                D. Use Amazon EFS and the Amazon SQS CLI.
+                                            </p>
+                                            <div class="su-spoiler su-spoiler-style-fancy su-spoiler-icon-chevron su-spoiler-closed" data-scroll-offset="0" data-anchor-in-url="no">
+                                                <div class="su-spoiler-title" tabindex="0" role="button"><span class="su-spoiler-icon"></span>Reveal</div>
+                                                <div class="su-spoiler-content su-u-clearfix su-u-trim">Answer: B <a href='https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-quotas.html'>https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-quotas.html</a></div>
+                                            </div>
+                                            <p>
+                                                65. A Developer has been asked to make changes to the source code of an AWS Lambda function. The function is managed using an AWS CloudFormation template. The template is configured to load
+                                                the source code from an Amazon S3 bucket. The Developer manually created a .ZIP file deployment package containing the changes and put the file into the correct location on Amazon S3. When the
+                                                function is invoked, the code changes have not been applied. What step is required to update the function with the changes?
+                                            </p>
+                                            <p>
+                                                A. Delete the .ZIP file on S3, and re-upload by using a different object key name.<br />
+                                                B. Update the CloudFormation stack with the correct values for the function code properties S3Bucket, S3Key, or S3ObjectVersion.<br />
+                                                C. Ensure that the function source code is base64-encoded before uploading the deployment package to S3.<br />
+                                                D. Modify the execution role of the Lambda function to allow S3 access permission to the deployment package .ZIP file.
+                                            </p>
+                                            <div class="su-spoiler su-spoiler-style-fancy su-spoiler-icon-chevron su-spoiler-closed" data-scroll-offset="0" data-anchor-in-url="no">
+                                                <div class="su-spoiler-title" tabindex="0" role="button"><span class="su-spoiler-icon"></span>Reveal</div>
+                                                <div class="su-spoiler-content su-u-clearfix su-u-trim">Answer: B <a href='https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lambda-function-code.html'>https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lambda-function-code.html</a></div>
+                                            </div>
+                                            <p>
+                                                66. An AWS Elastic Beanstalk application needs to be deployed in multiple regions and requires a different Amazon Machine Image (AMI) in each region. Which AWS CloudFormation template key can
+                                                be used to specify the correct AMI for each region?
+                                            </p>
+                                            <p>
+                                                A. Parameters<br />
+                                                B. Outputs<br />
+                                                C. Mappings<br />
+                                                D. Resources
+                                            </p>
+                                            <div class="su-spoiler su-spoiler-style-fancy su-spoiler-icon-chevron su-spoiler-closed" data-scroll-offset="0" data-anchor-in-url="no">
+                                                <div class="su-spoiler-title" tabindex="0" role="button"><span class="su-spoiler-icon"></span>Reveal</div>
+                                                <div class="su-spoiler-content su-u-clearfix su-u-trim">Answer: C <a href='https://docs.aws.amazon.com/marketplace/latest/userguide/cloudformation.html'>https://docs.aws.amazon.com/marketplace/latest/userguide/cloudformation.html</a></div>
+                                            </div>
+                                            <p>67. A Developer is designing a new application that uses Amazon S3. To satisfy compliance requirements, the Developer must encrypt the data at rest. How can the Developer accomplish this?</p>
+                                            <p>
+                                                A. Use s3:x-amz-acl as a condition in the S3 bucket policy.<br />
+                                                B. Use Amazon RDS with default encryption.<br />
+                                                C. Use aws:SecureTransport as a condition in the S3 bucket policy.<br />
+                                                D. Turn on S3 default encryption for the S3 bucket.
+                                            </p>
+                                            <div class="su-spoiler su-spoiler-style-fancy su-spoiler-icon-chevron su-spoiler-closed" data-scroll-offset="0" data-anchor-in-url="no">
+                                                <div class="su-spoiler-title" tabindex="0" role="button"><span class="su-spoiler-icon"></span>Reveal</div>
+                                                <div class="su-spoiler-content su-u-clearfix su-u-trim">Answer: D</div>
+                                            </div>
+                                            <p>68. A Developer wants to enable AWS X-Ray for a secure application that runs in an Amazon ECS environment. What combination of steps will enable X-Ray? (Select THREE.)</p>
+                                            <p>
+                                                A. Create a Docker image that runs the X-Ray daemon.<br />
+                                                B. Add instrumentation to the application code for X-Ray.<br />
+                                                C. Install the X-Ray daemon on the underlying EC2 instance.<br />
+                                                D. Configure and use an IAM EC2 instance role.<br />
+                                                E. Register the application with X-Ray.<br />
+                                                F. Configure and use an IAM role for tasks.
+                                            </p>
+                                            <div class="su-spoiler su-spoiler-style-fancy su-spoiler-icon-chevron su-spoiler-closed" data-scroll-offset="0" data-anchor-in-url="no">
+                                                <div class="su-spoiler-title" tabindex="0" role="button"><span class="su-spoiler-icon"></span>Reveal</div>
+                                                <div class="su-spoiler-content su-u-clearfix su-u-trim">Answer: A E F</div>
+                                            </div>
+                                            <p>69. A Developer must deploy a new AWS Lambda function using an AWS CloudFormation template. Which procedures will deploy a Lambda function? (Select TWO.)</p>
+                                            <p>
+                                                A. Upload the code to an AWS CodeCommit repository, then add a reference to it in an AWS::Lambda::Function resource in the template.<br />
+                                                B. Create an AWS::Lambda::Function resource in the template, then write the code directly inside the CloudFormation template.<br />
+                                                C. Upload a .ZIP file containing the function code to Amazon S3, then add a reference to it in an AWS::Lambda::Function resource in the template.<br />
+                                                D. Upload a .ZIP file to AWS CloudFormation containing the function code, then add a reference to it in an AWS::Lambda::Function resource in the template.<br />
+                                                E. Upload the function code to a private Git repository, then add a reference to it in an AWS::Lambda::Function resource in the template.
+                                            </p>
+                                            <div class="su-spoiler su-spoiler-style-fancy su-spoiler-icon-chevron su-spoiler-closed" data-scroll-offset="0" data-anchor-in-url="no">
+                                                <div class="su-spoiler-title" tabindex="0" role="button"><span class="su-spoiler-icon"></span>Reveal</div>
+                                                <div class="su-spoiler-content su-u-clearfix su-u-trim">Answer: B C <a href='https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lambda-function-code.html'>https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lambda-function-code.html</a></div>
+                                            </div>
+                                            <p>
+                                                70. A Developer has published an update to an application that is served to a global user base using Amazon CloudFront. After deploying the application, users are not able to see the updated
+                                                changes. How can the Developer resolve this issue?
+                                            </p>
+                                            <p>
+                                                A. Remove the origin from the CloudFront configuration and add it again.<br />
+                                                B. Disable forwarding of query strings and request headers from the CloudFront distribution configuration.<br />
+                                                C. Invalidate all the application objects from the edge caches.<br />
+                                                D. Disable the CloudFront distribution and enable it again to update all the edge locations.
+                                            </p>
+                                            <div class="su-spoiler su-spoiler-style-fancy su-spoiler-icon-chevron su-spoiler-closed" data-scroll-offset="0" data-anchor-in-url="no">
+                                                <div class="su-spoiler-title" tabindex="0" role="button"><span class="su-spoiler-icon"></span>Reveal</div>
+                                                <div class="su-spoiler-content su-u-clearfix su-u-trim">Answer: C <a href='https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/Invalidation.html'>https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/Invalidation.html</a></div>
+                                            </div>
+                                            <p>
+                                                71. A Developer wants to find a list of items in a global secondary index from an Amazon DynamoDB table. Which DynamoDB API call can the Developer use in order to consume the LEAST number of
+                                                read capacity units?
+                                            </p>
+                                            <p>
+                                                A. Scan operation using eventually-consistent reads<br />
+                                                B. Query operation using strongly-consistent reads<br />
+                                                C. Query operation using eventually-consistent reads<br />
+                                                D. Scan operation using strongly-consistent reads
+                                            </p>
+                                            <div class="su-spoiler su-spoiler-style-fancy su-spoiler-icon-chevron su-spoiler-closed" data-scroll-offset="0" data-anchor-in-url="no">
+                                                <div class="su-spoiler-title" tabindex="0" role="button"><span class="su-spoiler-icon"></span>Reveal</div>
+                                                <div class="su-spoiler-content su-u-clearfix su-u-trim">Answer: C <a href='https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/bp-query-scan.html'></a></div>
+                                            </div>
+                                            <p>
+                                                72. An AWS Lambda function generates a 3MB JSON file and then uploads it to an Amazon S3 bucket daily. The file contains sensitive information, so the Developer must ensure that it is
+                                                encrypted before uploading to the bucket. Which of the following modifications should the Developer make to ensure that the data is encrypted before uploading it to the bucket?
+                                            </p>
+                                            <p>
+                                                A. Use the default AWS KMS customer master key for S3 in the Lambda function code.<br />
+                                                B. Use the S3 managed key and call the GenerateDataKey API to encrypt the file.<br />
+                                                C. Use the GenerateDateKey API, then use that data key to encrypt the file in the Lambda function code.<br />
+                                                D. Use a custom KMS customer master key created for S3 in the Lambda function code.
+                                            </p>
+                                            <div class="su-spoiler su-spoiler-style-fancy su-spoiler-icon-chevron su-spoiler-closed" data-scroll-offset="0" data-anchor-in-url="no">
+                                                <div class="su-spoiler-title" tabindex="0" role="button"><span class="su-spoiler-icon"></span>Reveal</div>
+                                                <div class="su-spoiler-content su-u-clearfix su-u-trim">Answer: C <a href='https://docs.aws.amazon.com/kms/latest/APIReference/API_GenerateDataKey.html'>https://docs.aws.amazon.com/kms/latest/APIReference/API_GenerateDataKey.html</a></div>
+                                            </div>
+                                            <p>
+                                                73. A company needs to secure its existing website running behind an Elastic Load Balancer. The website’s Amazon EC2 instances are CPU-constrained. What should be done to secure the website
+                                                while not increasing the CPU load on the EC2 web servers? (Select TWO.)
+                                            </p>
+                                            <p>
+                                                A. Configure an Elastic Load Balancer with SSL pass-through.<br />
+                                                B. Configure SSL certificates on an Elastic Load Balancer.<br />
+                                                C. Configure an Elastic Load Balancer with a Loadable Storage System.<br />
+                                                D. Install SSL certificates on the EC2 instances.<br />
+                                                E. Configure an Elastic Load Balancer with SSL termination.
+                                            </p>
+                                            <div class="su-spoiler su-spoiler-style-fancy su-spoiler-icon-chevron su-spoiler-closed" data-scroll-offset="0" data-anchor-in-url="no">
+                                                <div class="su-spoiler-title" tabindex="0" role="button"><span class="su-spoiler-icon"></span>Reveal</div>
+                                                <div class="su-spoiler-content su-u-clearfix su-u-trim">Answer: B E <a href='https://aws.amazon.com/blogs/aws/elastic-load-balancer-support-for-ssl-termination/'>https://aws.amazon.com/blogs/aws/elastic-load-balancer-support-for-ssl-termination/</a></div>
+                                            </div>
+                                            <p>74. How should custom libraries be utilized in AWS Lambda?</p>
+                                            <p>
+                                                A. Host the library on Amazon S3 and reference to it from the Lambda function.<br />
+                                                B. Install the library locally and upload a ZIP file of the Lambda function.<br />
+                                                C. Import the necessary Lambda blueprint when creating the function.<br />
+                                                D. Modify the function runtime to include the necessary library.
+                                            </p>
+                                            <div class="su-spoiler su-spoiler-style-fancy su-spoiler-icon-chevron su-spoiler-closed" data-scroll-offset="0" data-anchor-in-url="no">
+                                                <div class="su-spoiler-title" tabindex="0" role="button"><span class="su-spoiler-icon"></span>Reveal</div>
+                                                <div class="su-spoiler-content su-u-clearfix su-u-trim">Answer: D <a href='https://docs.aws.amazon.com/lambda/latest/dg/env_variables.html'>https://docs.aws.amazon.com/lambda/latest/dg/env_variables.html</a></div>
+                                            </div>
+                                            <p>
+                                                75. In a move toward using microservices, a company’s Management team has asked all Development teams to build their services so that API requests depend only on that service’s data store. One
+                                                team is building a Payments service which has its own database; the service needs data that originates in the Accounts database. Both are using Amazon DynamoDB. What approach will result in
+                                                the simplest, decoupled, and reliable method to get near-real time updates from the Accounts database?
+                                            </p>
+                                            <p>
+                                                A. Use Amazon Glue to perform frequent ETL updates from the Accounts database to the Payments database.<br />
+                                                B. Use Amazon ElastiCache in Payments, with the cache updated by triggers in the Accounts database.<br />
+                                                C. Use Amazon Kinesis Data Firehouse to deliver all changes from the Accounts database to the Payments database.<br />
+                                                D. Use Amazon DynamoDB Streams to deliver all changes from the Accounts database to the Payments database.
+                                            </p>
+                                            <div class="su-spoiler su-spoiler-style-fancy su-spoiler-icon-chevron su-spoiler-closed" data-scroll-offset="0" data-anchor-in-url="no">
+                                                <div class="su-spoiler-title" tabindex="0" role="button"><span class="su-spoiler-icon"></span>Reveal</div>
+                                                <div class="su-spoiler-content su-u-clearfix su-u-trim">Answer: D <a href='https://aws.amazon.com/blogs/database/how-to-perform-ordered-data-replication-between-applications-by-using-amazon-dynamodb-streams/'>https://aws.amazon.com/blogs/database/how-to-perform-ordered-data-replication-between-applications-by-using-amazon-dynamodb-streams/</a></div>
+                                            </div>
+                                            <p>76. A Developer is designing a fault-tolerant environment where client sessions will be saved. How can the Developer ensure that no sessions are lost if an Amazon EC2 instance fails?</p>
+                                            <p>
+                                                A. Use sticky sessions with an Elastic Load Balancer target group.<br />
+                                                B. Use Amazon SQS to save session data.<br />
+                                                C. Use Amazon DynamoDB to perform scalable session handling.<br />
+                                                D. Use Elastic Load Balancer connection draining to stop sending requests to failing instances.
+                                            </p>
+                                            <div class="su-spoiler su-spoiler-style-fancy su-spoiler-icon-chevron su-spoiler-closed" data-scroll-offset="0" data-anchor-in-url="no">
+                                                <div class="su-spoiler-title" tabindex="0" role="button"><span class="su-spoiler-icon"></span>Reveal</div>
+                                                <div class="su-spoiler-content su-u-clearfix su-u-trim">Answer: C</div>
+                                            </div>
+                                            <p>
+                                                77. A Developer is writing an imaging micro service on AWS Lambda. The service is dependent on several libraries that are not available in the Lambda runtime environment. Which strategy should
+                                                the Developer follow to create the Lambda deployment package?
+                                            </p>
+                                            <p>
+                                                A. Create a ZIP file with the source code and all dependent libraries.<br />
+                                                B. Create a ZIP file with the source code and a script that installs the dependent libraries at runtime.<br />
+                                                C. Create a ZIP file with the source code. Stage the dependent libraries on an Amazon S3 bucket indicated by the Lambda environment variable LD_LIBRARY_PATH<br />
+                                                D. Create a ZIP file with the source code and a buildspec.yaml file that installs the dependent libraries on AWS Lambda.
+                                            </p>
+                                            <div class="su-spoiler su-spoiler-style-fancy su-spoiler-icon-chevron su-spoiler-closed" data-scroll-offset="0" data-anchor-in-url="no">
+                                                <div class="su-spoiler-title" tabindex="0" role="button"><span class="su-spoiler-icon"></span>Reveal</div>
+                                                <div class="su-spoiler-content su-u-clearfix su-u-trim">Answer: A <a href='https://docs.aws.amazon.com/lambda/latest/dg/lambda-python-how-to-create-deployment-package.html'>https://docs.aws.amazon.com/lambda/latest/dg/lambda-python-how-to-create-deployment-package.html</a></div>
+                                            </div>
+                                            <p>78. A Developer is writing a serverless application that requires that an AWS Lambda function be invoked every 10 minutes. What is an automated and serverless way to trigger the function?</p>
+                                            <p>
+                                                A. Deploy an Amazon EC2 instance based on Linux, and edit its /etc/crontab file by adding a command to periodically invoke the Lambda function.<br />
+                                                B. Configure an environment variable named PERIOD for the Lambda function. Set the value to 600.<br />
+                                                C. Create an Amazon CloudWatch Events rule that triggers on a regular schedule to invoke the Lambda function.<br />
+                                                D. Create an Amazon SNS topic that has a subscription to the Lambda function with a 600-second timer
+                                            </p>
+                                            <div class="su-spoiler su-spoiler-style-fancy su-spoiler-icon-chevron su-spoiler-closed" data-scroll-offset="0" data-anchor-in-url="no">
+                                                <div class="su-spoiler-title" tabindex="0" role="button"><span class="su-spoiler-icon"></span>Reveal</div>
+                                                <div class="su-spoiler-content su-u-clearfix su-u-trim">Answer: C <a href='https://aws.amazon.com/blogs/compute/using-api-gateway-stage-variables-to-manage-lambda-functions/'>https://aws.amazon.com/blogs/compute/using-api-gateway-stage-variables-to-manage-lambda-functions/</a></div>
+                                            </div>
+                                            <p>
+                                                79. A company needs a fully-managed source control service that will work in AWS. The service must ensure that revision control synchronizes multiple distributed repositories by exchanging
+                                                sets of changes peer-to-peer. All users need to work productively even when not connected to a network. Which source control service should be used?
+                                            </p>
+                                            <p>
+                                                A. Subversion<br />
+                                                B. AWS CodeBuild<br />
+                                                C. AWS CodeCommit<br />
+                                                D. AWS CodeStar
+                                            </p>
+                                            <div class="su-spoiler su-spoiler-style-fancy su-spoiler-icon-chevron su-spoiler-closed" data-scroll-offset="0" data-anchor-in-url="no">
+                                                <div class="su-spoiler-title" tabindex="0" role="button"><span class="su-spoiler-icon"></span>Reveal</div>
+                                                <div class="su-spoiler-content su-u-clearfix su-u-trim">Answer: C <a href='https://docs.aws.amazon.com/codecommit/latest/userguide/repositories.html'>https://docs.aws.amazon.com/codecommit/latest/userguide/repositories.html</a></div>
+                                            </div>
+                                            <p>
+                                                80. An application running on Amazon EC2 instances must access objects within an Amaon S3 busket that are encrypted using server-side encryption using AWS KMS encryption keys (SSEKMS). The
+                                                application must have access to the customer master key (CMK) to decrypt the objects. Which combination of steps will grant the application access? (Select TWO.)
+                                            </p>
+                                            <p>
+                                                A. Write an S3 bucket policy that grants the bucket access to the key.<br />
+                                                B. Grant access to the key in the IAM EC2 role attached to the application’s EC2 instances.<br />
+                                                C. Write a key policy that enables IAM policies to grant access to the key.<br />
+                                                D. Grant access to the key in the S3 bucket’s ACL<br />
+                                                E. Create a Systems Manager parameter that exposes the KMS key to the EC2 instances
+                                            </p>
+                                            <div class="su-spoiler su-spoiler-style-fancy su-spoiler-icon-chevron su-spoiler-closed" data-scroll-offset="0" data-anchor-in-url="no">
+                                                <div class="su-spoiler-title" tabindex="0" role="button"><span class="su-spoiler-icon"></span>Reveal</div>
+                                                <div class="su-spoiler-content su-u-clearfix su-u-trim">Answer: B C <a href='https://docs.aws.amazon.com/kms/latest/developerguide/iam-policies.html'>https://docs.aws.amazon.com/kms/latest/developerguide/iam-policies.html</a></div>
+                                            </div>
+                                            <p>81. A Developer is creating a mobile application that will not require users to log in. What is the MOST efficient method to grant users access to AWS resources?</p>
+                                            <p>
+                                                A. Use an identity provider to securely authenticate with the application.<br />
+                                                B. Create an AWS Lambda function to create an IAM user when a user accesses the application.<br />
+                                                C. Create credentials using AWS KMS and apply these credentials to users when using the application.<br />
+                                                D. Use Amazon Cognito to associate unauthenticated users with an IAM role that has limited access to resources.
+                                            </p>
+                                            <div class="su-spoiler su-spoiler-style-fancy su-spoiler-icon-chevron su-spoiler-closed" data-scroll-offset="0" data-anchor-in-url="no">
+                                                <div class="su-spoiler-title" tabindex="0" role="button"><span class="su-spoiler-icon"></span>Reveal</div>
+                                                <div class="su-spoiler-content su-u-clearfix su-u-trim">Answer: D</div>
+                                            </div>
+                                            <p>
+                                                82. A company is building an application to track athlete performance using an Amazon DynamoDB table. Each item in the table is identified by a partition key (user_id) and a sort key
+                                                (sport_name). The table design is shown below: A Developer is asked to write a leaderboard application to display the top performers (user_id) based on the score for each sport_name. What
+                                                process will allow the Developer to extract results MOST efficiently from the DynamoDB table?
+                                            </p>
+                                            <p>
+                                                A. Use a DynamoDB query operation with the key attributes of user_id and sport_name and order the results based on the score attribute.<br />
+                                                B. Create a global secondary index with a partition key of sport_name and a sort key of score, and get the results<br />
+                                                C. Use a DynamoDB scan operation to retrieve scores and user_id based on sport_name, and order the results based on the score attribute.<br />
+                                                D. Create a local secondary index with a primary key of sport_name and a sort key of score and get the results based on the score attribute.
+                                            </p>
+                                            <div class="su-spoiler su-spoiler-style-fancy su-spoiler-icon-chevron su-spoiler-closed" data-scroll-offset="0" data-anchor-in-url="no">
+                                                <div class="su-spoiler-title" tabindex="0" role="button"><span class="su-spoiler-icon"></span>Reveal</div>
+                                                <div class="su-spoiler-content su-u-clearfix su-u-trim">Answer: B</div>
+                                            </div>
+                                            <p>
+                                                83. A company recently migrated its web, application and NoSQL database tiers to AWS. The company is using Auto Scaling to scale the web and application tiers. More than 95 percent of the
+                                                Amazon DynamoDB requests are repeated read-requests. How can the DynamoDB NoSQL tier be scaled up to cache these repeated requests?
+                                            </p>
+                                            <p>
+                                                A. Amazon EMR<br />
+                                                B. Amazon DynamoDB Accelerator<br />
+                                                C. Amazon SQS<br />
+                                                D. Amazon CloudFront
+                                            </p>
+                                            <div class="su-spoiler su-spoiler-style-fancy su-spoiler-icon-chevron su-spoiler-closed" data-scroll-offset="0" data-anchor-in-url="no">
+                                                <div class="su-spoiler-title" tabindex="0" role="button"><span class="su-spoiler-icon"></span>Reveal</div>
+                                                <div class="su-spoiler-content su-u-clearfix su-u-trim">Answer: B</div>
+                                            </div>
+                                            <p>
+                                                84. A company has multiple Developers located across the globe who are updating code incrementally for a development project. When Developers upload code concurrently, internet connectivity is
+                                                slow and it is taking a long time to upload code for deployment in AWS Elastic Beanstalk. Which step will result in minimized upload and deployment time with the LEAST amount of administrative
+                                                effort?
+                                            </p>
+                                            <p>
+                                                A. Allow the Developers to upload the code to an Amazon S3 bucket, and deploy it directly to Elastic Beanstalk.<br />
+                                                B. Allow the Developers to upload the code to a central FTP server to deploy the application to Elastic Beanstalk.<br />
+                                                C. Create an AWS CodeCommit repository, allow the Developers to commit code to it, and then directly deploy the code to Elastic Beanstalk.<br />
+                                                D. Create a code repository on an Amazon EC2 instance so that all Developers can update the code, and deploy the application from the instance to Elastic Beanstalk.
+                                            </p>
+                                            <div class="su-spoiler su-spoiler-style-fancy su-spoiler-icon-chevron su-spoiler-closed" data-scroll-offset="0" data-anchor-in-url="no">
+                                                <div class="su-spoiler-title" tabindex="0" role="button"><span class="su-spoiler-icon"></span>Reveal</div>
+                                                <div class="su-spoiler-content su-u-clearfix su-u-trim">Answer: C
+													<p>
+													B is the answer. Cannot be D because you cannot add a local secondary index to an existing table, Local secondary indexes are created AT THE SAME TIME that you create a table.
+													<a href='https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/SecondaryIndexes.html'>https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/SecondaryIndexes.html</a>
+													</p>
+												</div>
+                                            </div>
+                                            <p>85. What does an Amazon SQS delay queue accomplish?</p>
+                                            <p>
+                                                A. Messages are hidden for a configurable amount of time when they are first added to the queue.<br />
+                                                B. Messages are hidden for a configurable amount of time after they are consumed from the queue.<br />
+                                                C. The consumer can poll the queue for a configurable amount of time before retrieving a message.<br />
+                                                D. Message cannot be deleted for a configurable amount of time after they are consumed from the queue.
+                                            </p>
+                                            <div class="su-spoiler su-spoiler-style-fancy su-spoiler-icon-chevron su-spoiler-closed" data-scroll-offset="0" data-anchor-in-url="no">
+                                                <div class="su-spoiler-title" tabindex="0" role="button"><span class="su-spoiler-icon"></span>Reveal</div>
+                                                <div class="su-spoiler-content su-u-clearfix su-u-trim">Answer: A <a href='https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-delay-queues.html'>https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-delay-queues.html</a></div>
+                                            </div>
+                                            <p>86. A Developer is using AWS CLI, but when running list commands on a large number of resources, it is timing out. What can be done to avoid this time-out?</p>
+                                            <p>
+                                                A. Use pagination<br />
+                                                B. Use shorthand syntax<br />
+                                                C. Use parameter values<br />
+                                                D. Use quoting strings
+                                            </p>
+                                            <div class="su-spoiler su-spoiler-style-fancy su-spoiler-icon-chevron su-spoiler-closed" data-scroll-offset="0" data-anchor-in-url="no">
+                                                <div class="su-spoiler-title" tabindex="0" role="button"><span class="su-spoiler-icon"></span>Reveal</div>
+                                                <div class="su-spoiler-content su-u-clearfix su-u-trim">Answer: A</div>
+                                            </div>
+                                            <p>
+                                                87. A Development team is working on a case management solution that allows medical claims to be processed and reviewed. Users log in to provide information related to their medical and
+                                                financial situations. As part of the application, sensitive documents such as medical records, medical imaging, bank statements, and receipts are uploaded to Amazon S3. All documents must be
+                                                securely transmitted and stored. All access to the documents must be recorded for auditing. What is the MOST secure approach?
+                                            </p>
+                                            <p>
+                                                A. Use S3 default encryption using Advanced Encryption Standard-256 (AES-256) on the destination bucket.<br />
+                                                B. Use Amazon Cognito for authorization and authentication to ensure the security of the application and documents.<br />
+                                                C. Use AWS Lambda to encrypt and decrypt objects as they are placed into the S3 bucket.<br />
+                                                D. Use client-side encryption/decryption with Amazon S3 and AWS KMS.
+                                            </p>
+                                            <div class="su-spoiler su-spoiler-style-fancy su-spoiler-icon-chevron su-spoiler-closed" data-scroll-offset="0" data-anchor-in-url="no">
+                                                <div class="su-spoiler-title" tabindex="0" role="button"><span class="su-spoiler-icon"></span>Reveal</div>
+                                                <div class="su-spoiler-content su-u-clearfix su-u-trim">Answer: D</div>
+                                            </div>
+                                            <p>
+                                                88. An application uses Amazon Kinesis Data Streams to ingest and process large streams of data records in real time. Amazon EC2 instances consume and process the data from the shards of the
+                                                Kinesis data stream by using Amazon Kinesis Client Library (KCL). The application handles the failure scenarios and does not require standby workers. The application reports that a specific
+                                                shard is receiving more data than expected. To adapt to the changes in the rate of data flow, the “hot” shard is resharded. Assuming that the initial number of shards in the Kinesis data
+                                                stream is 4, and after resharding the number of shards increased to 6, what is the maximum number of EC2 instances that can be deployed to process data from all the shards?
+                                            </p>
+                                            <p>
+                                                A. 12<br />
+                                                B. 6<br />
+                                                C. 4<br />
+                                                D. 1
+                                            </p>
+                                            <div class="su-spoiler su-spoiler-style-fancy su-spoiler-icon-chevron su-spoiler-closed" data-scroll-offset="0" data-anchor-in-url="no">
+                                                <div class="su-spoiler-title" tabindex="0" role="button"><span class="su-spoiler-icon"></span>Reveal</div>
+                                                <div class="su-spoiler-content su-u-clearfix su-u-trim">Answer: B</div>
+                                            </div>
+                                            <p>89. Where can PortMapping be defined when launching containers in Amazon ECS?</p>
+                                            <p>
+                                                A. Security groups<br />
+                                                B. Amazon Elastic Container Registry (Amzon ECR)<br />
+                                                C. Container agent<br />
+                                                D. Task definition
+                                            </p>
+                                            <div class="su-spoiler su-spoiler-style-fancy su-spoiler-icon-chevron su-spoiler-closed" data-scroll-offset="0" data-anchor-in-url="no">
+                                                <div class="su-spoiler-title" tabindex="0" role="button"><span class="su-spoiler-icon"></span>Reveal</div>
+                                                <div class="su-spoiler-content su-u-clearfix su-u-trim">Answer: D <a href='https://docs.aws.amazon.com/AmazonECS/latest/userguide/task_definition_parameters.html'>https://docs.aws.amazon.com/AmazonECS/latest/userguide/task_definition_parameters.html</a></div>
+                                            </div>
+                                            <p>
+                                                90. A stock market monitoring application uses Amazon Kinesis for data ingestion. During simulated tests of peak data rates, the Kinesis stream cannot keep up with the incoming data. What step
+                                                will allow Kinesis to accommodate the traffic during peak hours?
+                                            </p>
+                                            <p>
+                                                A. Install the Kinesis Producer Library (KPL) for ingesting data into the stream.<br />
+                                                B. Reduce the data retention period to allow for more data ingestion using DecreaseStreamRetentionPeriod.<br />
+                                                C. Increase the shard count of the stream using UpdateShardCount.<br />
+                                                D. Ingest multiple records into the stream in a single call using PutRecords.
+                                            </p>
+                                            <div class="su-spoiler su-spoiler-style-fancy su-spoiler-icon-chevron su-spoiler-closed" data-scroll-offset="0" data-anchor-in-url="no">
+                                                <div class="su-spoiler-title" tabindex="0" role="button"><span class="su-spoiler-icon"></span>Reveal</div>
+                                                <div class="su-spoiler-content su-u-clearfix su-u-trim">Answer: C <a href='https://aws.amazon.com/es/blogs/big-data/scale-your-amazon-kinesis-stream-capacity-with-updateshardcount/'>https://aws.amazon.com/es/blogs/big-data/scale-your-amazon-kinesis-stream-capacity-with-updateshardcount/</a></div>
+                                            </div>
+                                            <p>
+                                                91. While developing an application that runs on Amazon EC2 in an Amazon VPC, a Developer identifies the need for centralized storage of application-level logs. Which AWS service can be used
+                                                to securely store these logs?
+                                            </p>
+                                            <p>
+                                                A. Amazon EC2 VPC Flow Logs<br />
+                                                B. Amazon CloudWatch Logs<br />
+                                                C. Amazon CloudSearch<br />
+                                                D. AWS CloudTrail
+                                            </p>
+                                            <div class="su-spoiler su-spoiler-style-fancy su-spoiler-icon-chevron su-spoiler-closed" data-scroll-offset="0" data-anchor-in-url="no">
+                                                <div class="su-spoiler-title" tabindex="0" role="button"><span class="su-spoiler-icon"></span>Reveal</div>
+                                                <div class="su-spoiler-content su-u-clearfix su-u-trim">Answer: B <a href='https://docs.aws.amazon.com/vpc/latest/userguide/flow-logs.html'>https://docs.aws.amazon.com/vpc/latest/userguide/flow-logs.html</a></div>
+                                            </div>
+                                            <p>
+                                                92. An organization is storing large files in Amazon S3, and is writing a web application to display meta-data about the files to end-users. Based on the metadata a user selects an object to
+                                                download. The organization needs a mechanism to index the files and provide single-digit millisecond latency retrieval for the metadata. What AWS service should be used to accomplish this?
+                                            </p>
+                                            <p>
+                                                A. Amazon DynamoDB<br />
+                                                B. Amazon EC2<br />
+                                                C. AWS Lambda<br />
+                                                D. Amazon RDS
+                                            </p>
+                                            <div class="su-spoiler su-spoiler-style-fancy su-spoiler-icon-chevron su-spoiler-closed" data-scroll-offset="0" data-anchor-in-url="no">
+                                                <div class="su-spoiler-title" tabindex="0" role="button"><span class="su-spoiler-icon"></span>Reveal</div>
+                                                <div class="su-spoiler-content su-u-clearfix su-u-trim">Answer: A <a href='https://docs.aws.amazon.com/aws-technical-content/latest/aws-overview/database-services.html'>https://docs.aws.amazon.com/aws-technical-content/latest/aws-overview/database-services.html</a></div>
+                                            </div>
+                                            <p>
+                                                93. An on-premises application makes repeated calls to store files to Amazon S3. As usage of the application has increased, “LimitExceeded” errors are being logged. What should be changed to
+                                                fix this error?
+                                            </p>
+                                            <p>
+                                                A. Implement exponential backoffs in the application.<br />
+                                                B. Load balance the application to multiple servers.<br />
+                                                C. Move the application to Amazon EC2.<br />
+                                                D. Add a one second delay to each API call.
+                                            </p>
+                                            <div class="su-spoiler su-spoiler-style-fancy su-spoiler-icon-chevron su-spoiler-closed" data-scroll-offset="0" data-anchor-in-url="no">
+                                                <div class="su-spoiler-title" tabindex="0" role="button"><span class="su-spoiler-icon"></span>Reveal</div>
+                                                <div class="su-spoiler-content su-u-clearfix su-u-trim">Answer: A <a href='https://docs.aws.amazon.com/AWSEC2/latest/APIReference/query-api-troubleshooting.html'>https://docs.aws.amazon.com/AWSEC2/latest/APIReference/query-api-troubleshooting.html</a></div>
+                                            </div>
+                                            <p>
+                                                94. A Developer wants to encrypt new objects that are being uploaded to an Amazon S3 bucket by an application. There must be an audit trail of who has used the key during this process. There
+                                                should be no change to the performance of the application. Which type of encryption meets these requirements?
+                                            </p>
+                                            <p>
+                                                A. Server-side encryption using S3-managed keys<br />
+                                                B. Server-side encryption with AWS KMS-managed keys<br />
+                                                C. Client-side encryption with a client-side symmetric master key<br />
+                                                D. Client-side encryption with AWS KMS-managed keys
+                                            </p>
+                                            <div class="su-spoiler su-spoiler-style-fancy su-spoiler-icon-chevron su-spoiler-closed" data-scroll-offset="0" data-anchor-in-url="no">
+                                                <div class="su-spoiler-title" tabindex="0" role="button"><span class="su-spoiler-icon"></span>Reveal</div>
+                                                <div class="su-spoiler-content su-u-clearfix su-u-trim">Answer: B <a href='https://docs.aws.amazon.com/AmazonS3/latest/dev/serv-side-encryption.html'>https://docs.aws.amazon.com/AmazonS3/latest/dev/serv-side-encryption.html</a></div>
+                                            </div>
+                                            <p>
+                                                95. A company has an AWS CloudFormation template that is stored as a single file. The template is able to launch and create a full infrastructure stack. Which best practice would increase the
+                                                maintainability of the template?
+                                            </p>
+                                            <p>
+                                                A. Use nested stacks for common template patterns.<br />
+                                                B. Embed credentials to prevent typos.<br />
+                                                C. Remove mappings to decrease the number of variables.<br />
+                                                D. Use AWS::Include to reference publicly-hosted template files.
+                                            </p>
+                                            <div class="su-spoiler su-spoiler-style-fancy su-spoiler-icon-chevron su-spoiler-closed" data-scroll-offset="0" data-anchor-in-url="no">
+                                                <div class="su-spoiler-title" tabindex="0" role="button"><span class="su-spoiler-icon"></span>Reveal</div>
+                                                <div class="su-spoiler-content su-u-clearfix su-u-trim">Answer: A <a href='https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/best-practices.html'>https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/best-practices.html</a></div>
+                                            </div>
+                                            <p>
+                                                96. The upload of a 15 GB object to Amazon S3 fails. The error message reads: “Your proposed upload exceeds the maximum allowed object size.” What technique will allow the Developer to upload
+                                                this object?
+                                            </p>
+                                            <p>
+                                                A. Upload the object using the multi-part upload API.<br />
+                                                B. Upload the object over an AWS Direct Connect connection.<br />
+                                                C. Contact AWS Support to increase the object size limit.<br />
+                                                D. Upload the object to another AWS region.
+                                            </p>
+                                            <div class="su-spoiler su-spoiler-style-fancy su-spoiler-icon-chevron su-spoiler-closed" data-scroll-offset="0" data-anchor-in-url="no">
+                                                <div class="su-spoiler-title" tabindex="0" role="button"><span class="su-spoiler-icon"></span>Reveal</div>
+                                                <div class="su-spoiler-content su-u-clearfix su-u-trim">Answer: A <a href='https://docs.aws.amazon.com/AmazonS3/latest/dev/UploadingObjects.html'>https://docs.aws.amazon.com/AmazonS3/latest/dev/UploadingObjects.html</a></div>
+                                            </div>
+                                            <p>
+                                                97. An application is expected to process many files. Each file takes four minutes to process each AWS Lambda invocation. The Lambda function does not return any important data. What is the
+                                                fastest way to process all the files?
+                                            </p>
+                                            <p>
+                                                A. First split the files to make them smaller, then process with synchronous RequestResponse Lambda invocations.<br />
+                                                B. Make synchronous RequestResponse Lambda invocations and process the files one by one.<br />
+                                                C. Make asynchronous Event Lambda invocations and process the files in parallel.<br />
+                                                D. First join all the files, then process it all at once with an asynchronous Event Lambda invocation.
+                                            </p>
+                                            <div class="su-spoiler su-spoiler-style-fancy su-spoiler-icon-chevron su-spoiler-closed" data-scroll-offset="0" data-anchor-in-url="no">
+                                                <div class="su-spoiler-title" tabindex="0" role="button"><span class="su-spoiler-icon"></span>Reveal</div>
+                                                <div class="su-spoiler-content su-u-clearfix su-u-trim">Answer: C</div>
+                                            </div>
+                                            <p>
+                                                98. A company caches session information for a web application in an Amazon DynamoDB table. The company wants an automated way to delete old items from the table. What is the simplest way to
+                                                do this?
+                                            </p>
+                                            <p>
+                                                A. Write a script that deletes old records; schedule the scripts as a cron job on an Amazon EC2 instance.<br />
+                                                B. Add an attribute with the expiration time; enable the Time To Live feature based on that attribute.<br />
+                                                C. Each day, create a new table to hold session data; delete the previous day’s table.<br />
+                                                D. Add an attribute with the expiration time; name the attribute ItemExpiration.
+                                            </p>
+                                            <div class="su-spoiler su-spoiler-style-fancy su-spoiler-icon-chevron su-spoiler-closed" data-scroll-offset="0" data-anchor-in-url="no">
+                                                <div class="su-spoiler-title" tabindex="0" role="button"><span class="su-spoiler-icon"></span>Reveal</div>
+                                                <div class="su-spoiler-content su-u-clearfix su-u-trim">Answer: B <a href='https://aws.amazon.com/about-aws/whats-new/2017/02/amazon-dynamodb-now-supports-automatic-item-expiration-with-time-to-live-ttl/'>https://aws.amazon.com/about-aws/whats-new/2017/02/amazon-dynamodb-now-supports-automatic-item-expiration-with-time-to-live-ttl/</a></div>
+                                            </div>
+                                            <p>
+                                                99. AWS CodeBuild builds code for an application, creates the Docker image, pushes the image to Amazon Elastic Container Registry (Amazon ECR), and tags the image with a unique identifier. If
+                                                the Developers already have AWS CLI configured on their workstations, how can the Docker images be pulled to the workstations?
+                                            </p>
+                                            <p>
+                                                A. Run the following: docker pull REPOSITORY URI : TAG<br />
+                                                B. Run the output of the following: aws ecr get-login and then run: docker pull REPOSITORY URI : TAG<br />
+                                                C. Run the following: aws ecr get-login and then run: docker pull REPOSITORY URI : TAG<br />
+                                                D. Run the output of the following: aws ecr get-download-url-for-layer and then run: docker pull REPOSITORY URI : TAG
+                                            </p>
+                                            <div class="su-spoiler su-spoiler-style-fancy su-spoiler-icon-chevron su-spoiler-closed" data-scroll-offset="0" data-anchor-in-url="no">
+                                                <div class="su-spoiler-title" tabindex="0" role="button"><span class="su-spoiler-icon"></span>Reveal</div>
+                                                <div class="su-spoiler-content su-u-clearfix su-u-trim">Answer: B <a href='https://docs.aws.amazon.com/cli/latest/reference/ecr/get-login.htm'>https://docs.aws.amazon.com/cli/latest/reference/ecr/get-login.htm</a></div>
+                                            </div>
+                                            <p>
+                                                100. Queries to an Amazon DynamoDB table are consuming a large amount of read capacity. The table has a significant number of large attributes. The application does not need all of the
+                                                attribute data. How can DynamoDB costs be minimized while maximizing application performance?
+                                            </p>
+                                            <p>
+                                                A. Batch all the writes, and perform the write operations when no or few reads are being performed.<br />
+                                                B. Create a global secondary index with a minimum set of projected attributes.<br />
+                                                C. Implement exponential backoffs in the application.<br />
+                                                D. Load balance the reads to the table using an Application Load Balancer
+                                            </p>
+                                            <div class="su-spoiler su-spoiler-style-fancy su-spoiler-icon-chevron su-spoiler-closed" data-scroll-offset="0" data-anchor-in-url="no">
+                                                <div class="su-spoiler-title" tabindex="0" role="button"><span class="su-spoiler-icon"></span>Reveal</div>
+                                                <div class="su-spoiler-content su-u-clearfix su-u-trim">Answer: B</div>
+                                            </div>
+                                            <p>101. An application is running on an EC2 instance. The Developer wants to store an application metric in Amazon CloudWatch. What is the best practice for implementing this requirement?</p>
+                                            <p>
+                                                A. Use the PUT Object API call to send data to an S3 bucket. Use an event notification to invoke a Lambda function to publish data to CloudWatch.<br />
+                                                B. Publish the metric data to an Amazon Kinesis Stream using a PutRecord API call. Subscribe a Lambda function that publishes data to CloudWatch.<br />
+                                                C. Use the CloudWatch PutMetricData API call to submit a custom metric to CloudWatch. Provide the required credentials to enable the API call.<br />
+                                                D. Use the CloudWatch PutMetricData API call to submit a custom metric to CloudWatch. Launch the EC2 instance with the required IAM role to enable the API call
+                                            </p>
+                                            <div class="su-spoiler su-spoiler-style-fancy su-spoiler-icon-chevron su-spoiler-closed" data-scroll-offset="0" data-anchor-in-url="no">
+                                                <div class="su-spoiler-title" tabindex="0" role="button"><span class="su-spoiler-icon"></span>Reveal</div>
+                                                <div class="su-spoiler-content su-u-clearfix su-u-trim">Answer: D</div>
+                                            </div>
+                                            <p>
+                                                102. A company needs a new REST API that can return information about the contents of an Amazon S3 bucket, such as a count of the objects stored in it. The company has decided that the new API
+                                                should be written as a microservice using AWS Lambda and Amazon API Gateway. How should the Developer ensure that the microservice has the necessary access to the Amazon S3 bucket, while
+                                                adhering to security best practices?
+                                            </p>
+                                            <p>
+                                                A. Create an IAM user that has permissions to access the Amazon S3 bucket, and store the IAM user credentials in the Lambda function source code.<br />
+                                                B. Create an IAM role that has permissions to access the Amazon S3 bucket and assign it to the Lambda function as its execution role.<br />
+                                                C. Create an Amazon S3 bucket policy that specifies the Lambda service as its principal and assign it to the Amazon S3 bucket.<br />
+                                                D. Create an IAM role, attach the AmazonS3FullAccess managed policy to it, and assign the role to the Lambda function as its execution role
+                                            </p>
+                                            <div class="su-spoiler su-spoiler-style-fancy su-spoiler-icon-chevron su-spoiler-closed" data-scroll-offset="0" data-anchor-in-url="no">
+                                                <div class="su-spoiler-title" tabindex="0" role="button"><span class="su-spoiler-icon"></span>Reveal</div>
+                                                <div class="su-spoiler-content su-u-clearfix su-u-trim">Answer: B</div>
+                                            </div>
+                                            <p>
+                                                103. A web application is designed to allow new users to create accounts using their email addresses. The application will store attributes for each user, and is expecting millions of user to
+                                                sign up. What should the Developer implement to achieve the design goals?
+                                            </p>
+                                            <p>
+                                                A. Amazon Cognito user pools<br />
+                                                B. AWS Mobile Hub user data storage<br />
+                                                C. Amazon Cognito Sync<br />
+                                                D. AWS Mobile Hub cloud logic
+                                            </p>
+                                            <div class="su-spoiler su-spoiler-style-fancy su-spoiler-icon-chevron su-spoiler-closed" data-scroll-offset="0" data-anchor-in-url="no">
+                                                <div class="su-spoiler-title" tabindex="0" role="button"><span class="su-spoiler-icon"></span>Reveal</div>
+                                                <div class="su-spoiler-content su-u-clearfix su-u-trim">Answer: A <A href='https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-identity-pools.html'>https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-identity-pools.html</a></div>
+                                            </div>
+                                            <p>
+                                                104. An application is using Amazon DynamoDB as its data store, and should be able to read 100 items per second as strongly consistent reads. Each item is 5 KB in size. To what value should
+                                                the table’s provisioned read throughput be set?
+                                            </p>
+                                            <p>
+                                                A. 50 read capacity units<br />
+                                                B. 100 read capacity units<br />
+                                                C. 200 read capacity units<br />
+                                                D. 500 read capacity units
+                                            </p>
+                                            <div class="su-spoiler su-spoiler-style-fancy su-spoiler-icon-chevron su-spoiler-closed" data-scroll-offset="0" data-anchor-in-url="no">
+                                                <div class="su-spoiler-title" tabindex="0" role="button"><span class="su-spoiler-icon"></span>Reveal</div>
+                                                <div class="su-spoiler-content su-u-clearfix su-u-trim">Answer: C <a href='https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/HowItWorks.ReadWriteCapacityMode.html'>https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/HowItWorks.ReadWriteCapacityMode.html</a></div>
+                                            </div>
+                                            <p>
+                                                105. An organization is using Amazon CloudFront to ensure that its users experience low-latency access to its web application. The organization has identified a need to encrypt all traffic
+                                                between users and CloudFront, and all traffic between CloudFront and the web application. How can these requirements be met? (Choose two.)
+                                            </p>
+                                            <p>
+                                                A. Use AWS KMS to encrypt traffic between CloudFront and the web application.<br />
+                                                B. Set the Origin Protocol Policy to “HTTPS Only”.<br />
+                                                C. Set Origin&#8217;s HTTP Port to 443.<br />
+                                                D. Set the Viewer Protocol Policy to “HTTPS Only” or “Redirect HTTP to HTTPS”.<br />
+                                                E. Enable the CloudFront option Restrict Viewer Access.
+                                            </p>
+                                            <div class="su-spoiler su-spoiler-style-fancy su-spoiler-icon-chevron su-spoiler-closed" data-scroll-offset="0" data-anchor-in-url="no">
+                                                <div class="su-spoiler-title" tabindex="0" role="button"><span class="su-spoiler-icon"></span>Reveal</div>
+                                                <div class="su-spoiler-content su-u-clearfix su-u-trim">Answer: B D
+													<ul>
+														<li><a href='https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/using-https-viewers-to-cloudfront.html'>https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/using-https-viewers-to-cloudfront.html</a></li>
+														<li><a href='https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/using-https-cloudfront-to-custom-origin.html'>https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/using-https-cloudfront-to-custom-origin.html</a></li>
+													</ul>
+												</div>
+                                            </div>
+                                            <p>
+                                                106. An application uses Lambda functions to extract metadata from files uploaded to an S3 bucket; the metadata is stored in Amazon DynamoDB. The application starts behaving unexpectedly, and
+                                                the Developer wants to examine the logs of the Lambda function code for errors. Based on this system configuration, where would the Developer find the logs?
+                                            </p>
+                                            <p>
+                                                A. Amazon S3<br />
+                                                B. AWS CloudTrail<br />
+                                                C. Amazon CloudWatch<br />
+                                                D. Amazon DynamoDB
+                                            </p>
+                                            <div class="su-spoiler su-spoiler-style-fancy su-spoiler-icon-chevron su-spoiler-closed" data-scroll-offset="0" data-anchor-in-url="no">
+                                                <div class="su-spoiler-title" tabindex="0" role="button"><span class="su-spoiler-icon"></span>Reveal</div>
+                                                <div class="su-spoiler-content su-u-clearfix su-u-trim">Answer: C</div>
+                                            </div>
+                                            <p>
+                                                107. A Developer has developed a web application and wants to deploy it quickly on a Tomcat server on AWS. The Developer wants to avoid having to manage the underlying infrastructure. What is
+                                                the easiest way to deploy the application, based on these requirements?
+                                            </p>
+                                            <p>
+                                                A. AWS CloudFormation<br />
+                                                B. AWS Elastic Beanstalk<br />
+                                                C. Amazon S3<br />
+                                                D. AWS CodePipeline
+                                            </p>
+                                            <div class="su-spoiler su-spoiler-style-fancy su-spoiler-icon-chevron su-spoiler-closed" data-scroll-offset="0" data-anchor-in-url="no">
+                                                <div class="su-spoiler-title" tabindex="0" role="button"><span class="su-spoiler-icon"></span>Reveal</div>
+                                                <div class="su-spoiler-content su-u-clearfix su-u-trim">Answer: B <a href='https://aws.amazon.com/answers/web-applications/aws-web-app-deployment-java/'>https://aws.amazon.com/answers/web-applications/aws-web-app-deployment-java/</a></div>
+                                            </div>
+                                            <p>
+                                                108. A Developer is creating a Lambda function that will generate and export a file. The function requires 100 MB of temporary storage for temporary files while executing. These files will not
+                                                be needed after the function is complete. How can the Developer MOST efficiently handle the temporary files?
+                                            </p>
+                                            <p>
+                                                A. Store the files in EBS and delete the files at the end of the Lambda function.<br />
+                                                B. Copy the files to EFS and delete the files at the end of the Lambda function.<br />
+                                                C. Store the files in the /tmp directory and delete the files at the end of the Lambda function.<br />
+                                                D. Copy the files to an S3 bucket with a lifecycle policy to delete the files.
+                                            </p>
+                                            <div class="su-spoiler su-spoiler-style-fancy su-spoiler-icon-chevron su-spoiler-closed" data-scroll-offset="0" data-anchor-in-url="no">
+                                                <div class="su-spoiler-title" tabindex="0" role="button"><span class="su-spoiler-icon"></span>Reveal</div>
+                                                <div class="su-spoiler-content su-u-clearfix su-u-trim">Answer: C</div>
+                                            </div>
+                                            <p>109. An application runs on multiple EC2 instances behind an ELB. Where is the session data best written so that it can be served reliably across multiple requests?</p>
+                                            <p>
+                                                A. Write data to Amazon ElastiCache<br />
+                                                B. Write data to Amazon Elastic Block Store.<br />
+                                                C. Write data to Amazon EC2 Instance Store.<br />
+                                                D. Write data to the root filesystem.
+                                            </p>
+                                            <div class="su-spoiler su-spoiler-style-fancy su-spoiler-icon-chevron su-spoiler-closed" data-scroll-offset="0" data-anchor-in-url="no">
+                                                <div class="su-spoiler-title" tabindex="0" role="button"><span class="su-spoiler-icon"></span>Reveal</div>
+                                                <div class="su-spoiler-content su-u-clearfix su-u-trim">Answer: A <a href='https://docs.aws.amazon.com/aws-technical-content/latest/microservices-on-aws/microservices-on-aws.pdf?icmpid=link_from_whitepapers_page'>https://docs.aws.amazon.com/aws-technical-content/latest/microservices-on-aws/microservices-on-aws.pdf?icmpid=link_from_whitepapers_page</a></div>
+                                            </div>
+                                            <p>
+                                                110. A company is migrating from a monolithic architecture to a microservices-based architecture. The Developers need to refactor the application so that the many microservices can
+                                                asynchronously communicate with each other without impacting performance. Use of which managed AWS services will enable asynchronous message passing? (Choose two.)
+                                            </p>
+                                            <p>
+                                                A. Amazon SQS<br />
+                                                B. Amazon Cognito<br />
+                                                C. Amazon Kinesis<br />
+                                                D. Amazon SNS<br />
+                                                E. Amazon ElastiCache
+                                            </p>
+                                            <div class="su-spoiler su-spoiler-style-fancy su-spoiler-icon-chevron su-spoiler-closed" data-scroll-offset="0" data-anchor-in-url="no">
+                                                <div class="su-spoiler-title" tabindex="0" role="button"><span class="su-spoiler-icon"></span>Reveal</div>
+                                                <div class="su-spoiler-content su-u-clearfix su-u-trim">Answer: A D</div>
+                                            </div>
+                                            <p>111. An application running on an Amazon Linux EC2 instance needs to manage the AWS infrastructure. How can the EC2 instance be configured to make AWS API calls securely?</p>
+                                            <p>
+                                                A. Sign the AWS CLI command using the signature version 4 process.<br />
+                                                B. Run the aws configure AWS CLI command and specify the access key id and secret access key.<br />
+                                                C. Specify a role for the EC2 instance with the necessary privileges.<br />
+                                                D. Pass the access key id and secret access key as parameters for each AWS CLI command.
+                                            </p>
+                                            <div class="su-spoiler su-spoiler-style-fancy su-spoiler-icon-chevron su-spoiler-closed" data-scroll-offset="0" data-anchor-in-url="no">
+                                                <div class="su-spoiler-title" tabindex="0" role="button"><span class="su-spoiler-icon"></span>Reveal</div>
+                                                <div class="su-spoiler-content su-u-clearfix su-u-trim">Answer: C</div>
+                                            </div>
+                                            <p>
+                                                112. The development team is working on an API that will be served from Amazon API gateway. The API will be served from three environments: development, test, and production. The API Gateway
+                                                is configured to use 237 GB of cache in all three stages. Which is the MOST cost-efficient deployment strategy?
+                                            </p>
+                                            <p>
+                                                A. Create a single API Gateway with all three stages.<br />
+                                                B. Create three API Gateways, one for each stage in a single AWS account.<br />
+                                                C. Create an API Gateway in three separate AWS accounts.<br />
+                                                D. Enable the cache for development and test environments only when needed.
+                                            </p>
+                                            <div class="su-spoiler su-spoiler-style-fancy su-spoiler-icon-chevron su-spoiler-closed" data-scroll-offset="0" data-anchor-in-url="no">
+                                                <div class="su-spoiler-title" tabindex="0" role="button"><span class="su-spoiler-icon"></span>Reveal</div>
+                                                <div class="su-spoiler-content su-u-clearfix su-u-trim">Answer: D <a href='https://aws.amazon.com/api-gateway/pricing/'>https://aws.amazon.com/api-gateway/pricing/</a></div>
+                                            </div>
+                                            <p>113. According to best practice, how should access keys be managed in AWS? (Choose two.)</p>
+                                            <p>
+                                                A. Use the same access key in all applications for consistency.<br />
+                                                B. Delete all access keys for the account root user.<br />
+                                                C. Leave unused access keys in the account for tracking purposes.<br />
+                                                D. Embed and encrypt access keys in code for continuous deployment.<br />
+                                                E. Use Amazon IAM roles instead of access keys where possible.
+                                            </p>
+                                            <div class="su-spoiler su-spoiler-style-fancy su-spoiler-icon-chevron su-spoiler-closed" data-scroll-offset="0" data-anchor-in-url="no">
+                                                <div class="su-spoiler-title" tabindex="0" role="button"><span class="su-spoiler-icon"></span>Reveal</div>
+                                                <div class="su-spoiler-content su-u-clearfix su-u-trim">Answer: B E</div>
+                                            </div>
+                                            <p>
+                                                114. A development team is using AWS Elastic Beanstalk to deploy a two-tier application that consists of a load-balanced web tier and an Amazon RDS database tier in production. The team would
+                                                like to separate the RDS instance from the Elastic Beanstalk. How can this be accomplished?
+                                            </p>
+                                            <p>
+                                                A. Use the Elastic Beanstalk CLI to disassociate the database.<br />
+                                                B. Use the AWS CLI to disassociate the database.<br />
+                                                C. Change the deployment policy to disassociate the database.<br />
+                                                D. Recreate a new Elastic Beanstalk environment without Amazon RDS.
+                                            </p>
+                                            <div class="su-spoiler su-spoiler-style-fancy su-spoiler-icon-chevron su-spoiler-closed" data-scroll-offset="0" data-anchor-in-url="no">
+                                                <div class="su-spoiler-title" tabindex="0" role="button"><span class="su-spoiler-icon"></span>Reveal</div>
+                                                <div class="su-spoiler-content su-u-clearfix su-u-trim">Answer: D <A href='https://aws.amazon.com/premiumsupport/knowledge-center/decouple-rds-from-beanstalk/'>https://aws.amazon.com/premiumsupport/knowledge-center/decouple-rds-from-beanstalk/</a></div>
+                                            </div>
+                                            <p>
+                                                115. An application needs to use the IP address of the client in its processing. The application has been moved into AWS and has been placed behind an Application Load Balancer (ALB). However,
+                                                all the client IP addresses now appear to be the same. The application must maintain the ability to scale horizontally. Based on this scenario, what is the MOST cost-effective solution to this
+                                                problem?
+                                            </p>
+                                            <p>
+                                                A. Remove the application from the ALB. Delete the ALB and change Amazon Route 53 to direct traffic to the instance running the application.<br />
+                                                B. Remove the application from the ALB. Create a Classic Load Balancer in its place. Direct traffic to the application using the HTTP protocol.<br />
+                                                C. Alter the application code to inspect the X-Forwarded-For header. Ensure that the code can work properly if a list of IP addresses is passed in the header.<br />
+                                                D. Alter the application code to inspect a custom header. Alter the client code to pass the IP address in the custom header.
+                                            </p>
+                                            <div class="su-spoiler su-spoiler-style-fancy su-spoiler-icon-chevron su-spoiler-closed" data-scroll-offset="0" data-anchor-in-url="no">
+                                                <div class="su-spoiler-title" tabindex="0" role="button"><span class="su-spoiler-icon"></span>Reveal</div>
+                                                <div class="su-spoiler-content su-u-clearfix su-u-trim">Answer: C <a href='https://aws.amazon.com/premiumsupport/knowledge-center/elb-capture-client-ip-addresses/'>https://aws.amazon.com/premiumsupport/knowledge-center/elb-capture-client-ip-addresses/</a></div>
+                                            </div>
+                                            <p>
+                                                116. A website’s page load times are gradually increasing as more users access the system at the same time. Analysis indicates that a user profile is being loaded from a database in all the
+                                                web pages being visited by each user and this is increasing the database load and the page load latency. To address this issue the Developer decides to cache the user profile data. Which
+                                                caching strategy will address this situation MOST efficiently?
+                                            </p>
+                                            <p>
+                                                A. Create a new Amazon EC2 Instance and run a NoSQL database on it. Cache the profile data within this database using the write-through caching strategy.<br />
+                                                B. Create an Amazon ElastiCache cluster to cache the user profile data. Use a cache-aside caching strategy.<br />
+                                                C. Use a dedicated Amazon RDS instance for caching profile data. Use a write-through caching strategy.<br />
+                                                D. Create an ElastiCache cluster to cache the user profile data. Use a write-through caching strategy.
+                                            </p>
+                                            <div class="su-spoiler su-spoiler-style-fancy su-spoiler-icon-chevron su-spoiler-closed" data-scroll-offset="0" data-anchor-in-url="no">
+                                                <div class="su-spoiler-title" tabindex="0" role="button"><span class="su-spoiler-icon"></span>Reveal</div>
+                                                <div class="su-spoiler-content su-u-clearfix su-u-trim">Answer: B <a href='https://docs.aws.amazon.com/AmazonElastiCache/latest/mem-ug/Strategies.html'>https://docs.aws.amazon.com/AmazonElastiCache/latest/mem-ug/Strategies.html</a></div>
+                                            </div>
+                                            <p>
+                                                117. A social media company is using Amazon Cognito in order to synchronize profiles across different mobile devices, to enable end users to have a seamless experience. Which of the following
+                                                configurations can be used to silently notify users whenever an update is available on all other devices?
+                                            </p>
+                                            <p>
+                                                A. Modify the user pool to include all the devices which keep them in sync.<br />
+                                                B. Use the SyncCallback interface to receive notifications on the application.<br />
+                                                C. Use an Amazon Cognito stream to analyze the data and push the notifications.<br />
+                                                D. Use the push synchronization feature with the appropriate IAM role.
+                                            </p>
+                                            <div class="su-spoiler su-spoiler-style-fancy su-spoiler-icon-chevron su-spoiler-closed" data-scroll-offset="0" data-anchor-in-url="no">
+                                                <div class="su-spoiler-title" tabindex="0" role="button"><span class="su-spoiler-icon"></span>Reveal</div>
+                                                <div class="su-spoiler-content su-u-clearfix su-u-trim">Answer: D</div>
+                                            </div>
+                                            <p>
+                                                118. A company is using AWS CodePipeline to deliver one of its applications. The delivery pipeline is triggered by changes to the master branch of an AWS CodeCommit repository and uses AWS
+                                                CodeBuild to implement the test and build stages of the process and AWS CodeDeploy to deploy the application. The pipeline has been operating successfully for several months and there have
+                                                been no modifications. Following a recent change to the application’s source code, AWS CodeDeploy has not deployed the updates application as expected. What are the possible causes? (Choose
+                                                two.)
+                                            </p>
+                                            <p>
+                                                A. The change was not made in the master branch of the AWS CodeCommit repository.<br />
+                                                B. One of the Amazon EC2 instances in the company’s AWS CodePipeline cluster is inactive.<br />
+                                                C. The AWS CodePipeline is incorrectly configured and is not executing AWS CodeDeploy.<br />
+                                                D. AWS CodePipeline does not have permissions to access AWS CodeCommit.
+                                            </p>
+                                            <div class="su-spoiler su-spoiler-style-fancy su-spoiler-icon-chevron su-spoiler-closed" data-scroll-offset="0" data-anchor-in-url="no">
+                                                <div class="su-spoiler-title" tabindex="0" role="button"><span class="su-spoiler-icon"></span>Reveal</div>
+                                                <div class="su-spoiler-content su-u-clearfix su-u-trim">Answer: A B</div>
+                                            </div>
+                                            <p>
+                                                119. An application displays a status dashboard. The status is updated by 1 KB messages from an SQS queue. Although the status changes infrequently, the Developer must minimize the time
+                                                between the message arrival in the queue and the dashboard update. What technique provides the shortest delay in updating the dashboard?
+                                            </p>
+                                            <p>
+                                                A. Retrieve the messages from the queue using long polling every 20 seconds.<br />
+                                                B. Reduce the size of the messages by compressing them before sending.<br />
+                                                C. Retrieve the messages from the queue using short polling every 10 seconds.<br />
+                                                D. Reduce the size of each message payload by sending it in two parts
+                                            </p>
+                                            <div class="su-spoiler su-spoiler-style-fancy su-spoiler-icon-chevron su-spoiler-closed" data-scroll-offset="0" data-anchor-in-url="no">
+                                                <div class="su-spoiler-title" tabindex="0" role="button"><span class="su-spoiler-icon"></span>Reveal</div>
+                                                <div class="su-spoiler-content su-u-clearfix su-u-trim">Answer: A <a href='https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-short-and-long-polling.html
+'>https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-short-and-long-polling.html
+</a></div>
+                                            </div>
+                                            <p>
+                                                120. An on-premises application is implemented using a Linux, Apache, MySQL and PHP (LAMP) stack. The Developer wants to run this application in AWS. Which of the following sets of AWS
+                                                services can be used to run this stack?
+                                            </p>
+                                            <p>
+                                                A. Amazon API Gateway, Amazon S3<br />
+                                                B. AWS Lambda, Amazon DynamoDB<br />
+                                                C. Amazon EC2, Amazon Aurora<br />
+                                                D. Amazon Cognito, Amazon RDS<br />
+                                                E. Amazon ECS, Amazon EBS
+                                            </p>
+                                            <div class="su-spoiler su-spoiler-style-fancy su-spoiler-icon-chevron su-spoiler-closed" data-scroll-offset="0" data-anchor-in-url="no">
+                                                <div class="su-spoiler-title" tabindex="0" role="button"><span class="su-spoiler-icon"></span>Reveal</div>
+                                                <div class="su-spoiler-content su-u-clearfix su-u-trim">Answer: C</div>
+                                            </div>
+                                        </div>
+                              </div>
+                           </div>
+                           <div class="post-gap"></div>
+
+                        </article>
+                        <hr class="tall"/>
+                     </div>
+                  </div>
+               </div>
+            </div>
+         </div>
+        <div class="footer-wrapper ">
+            <div id="footer" class="footer-3 show-ribbon">
+               <div class="container">
+                  <div class="footer-ribbon"><a href="#">Get in Touch!</a></div>
+                  <div class="row">
+                     <div class="col-sm-12 col-md-3">
+                        <aside id="contact-info-widget-2" class="widget contact-info">
+                           <div class="contact-info">
+                              <ul class="contact-details">
+                                 <li><i class="fa fa-envelope"></i> <strong>Email:</strong> <span><a href="mailto:meirezende@hotmail.com">meirezende@hotmail.com</a></span></li>
+                                 <li><i class="fa fa-clock-o"></i> <strong>Working Days/Hours:</strong> <span>24/7</span></li>
+                              </ul>
+                           </div>
+                        </aside>
+                     </div>
+                     <div class="col-sm-12 col-md-3">
+                        <aside id="follow-us-widget-3" class="widget follow-us">
+                           <h3 class="widget-title">Follow Us</h3>
+                           <div class="share-links"><a href="https://www.linkedin.com/in/andremrezende/" target="_blank" data-toggle="tooltip" data-placement="bottom" title="Linkedin" class="share-linkedin">Linkedin</a></div>
+                        </aside>
+                     </div>
+                  </div>
+               </div>
+            </div>
+         </div>
+         <div id="blueimp-gallery" class="blueimp-gallery blueimp-gallery-controls" data-start-slideshow="true" data-filter=":even">
+            <div class="slides"></div>
+            <h3 class="title">&nbsp;</h3>
+            <a class="prev"></a> <a class="next"></a> <a class="close"></a> <a class="play-pause"></a>
+            <ol class="indicator"></ol>
+         </div>
+      </div>
+      <div class="panel-overlay"></div>
+      <div class="filter-overlay"></div>
+      <a href="#" id="nav-panel-close" class=""><i class="fa fa-close"></i></a> <!--[if lt IE 9]> <script src="https://www.awslagi.com/wp-content/themes/porto/js/html5shiv.min.js"></script> <script src="https://www.awslagi.com/wp-content/themes/porto/js/respond.min.js"></script> <![endif]--> 
+      <noscript>
+         <style>.lazyload{display:none}</style>
+      </noscript>
+      <script data-noptimize="1">window.lazySizesConfig=window.lazySizesConfig||{};window.lazySizesConfig.loadMode=1;</script><script async data-noptimize="1" src='../wp-content/plugins/autoptimize/classes/external/js/lazysizes.minb433.js?ao_version=2.8.4'></script> <script type='text/javascript' id='kk-star-ratings-js-extra'>var kk_star_ratings={"action":"kk-star-ratings","endpoint":"https:\/\/www.awslagi.com\/wp-admin\/admin-ajax.php","nonce":"1856067718"};</script> <script type='text/javascript' id='enlighterjs-js-after'>!function(n,o){"undefined"!=typeof EnlighterJS?(n.EnlighterJSINIT=function(){EnlighterJS.init("pre.EnlighterJSRAW","code.EnlighterJSRAW",{"indent":4,"ampersandCleanup":true,"linehover":true,"rawcodeDbclick":false,"textOverflow":"break","linenumbers":true,"theme":"enlighter","language":"generic","retainCssClasses":false,"collapse":false,"toolbarOuter":"","toolbarTop":"{BTN_RAW}{BTN_COPY}{BTN_WINDOW}{BTN_WEBSITE}","toolbarBottom":""})})():(o&&(o.error||o.log)||function(){})("Error: EnlighterJS resources not loaded yet!")}(window,console);</script> <script type='text/javascript' id='porto-theme-js-extra'>var js_porto_vars={"rtl":"","ajax_url":"https:\/\/www.awslagi.com\/wp-admin\/admin-ajax.php","change_logo":"1","post_zoom":"1","portfolio_zoom":"1","member_zoom":"1","page_zoom":"1","container_width":"1170","grid_gutter_width":"20","show_sticky_header":"1","show_sticky_header_tablet":"1","show_sticky_header_mobile":"1","request_error":"The requested content cannot be loaded.<br\/>Please try again later.","ajax_loader_url":":\/\/www.awslagi.com\/wp-content\/themes\/porto\/images\/ajax-loader@2x.gif","category_ajax":"1","prdctfltr_ajax":"","show_minicart":"0","slider_loop":"1","slider_autoplay":"1","slider_speed":"5000","slider_nav":"1","slider_nav_hover":"1","slider_margin":"","slider_dots":"1","slider_animatein":"","slider_animateout":"","product_thumbs_count":"4","product_zoom":"1","product_zoom_mobile":"1","product_image_popup":"1","zoom_type":"inner","zoom_scroll":"1","zoom_lens_size":"200","zoom_lens_shape":"square","zoom_contain_lens":"1","zoom_lens_border":"1","zoom_border_color":"#888888","zoom_border":"0","screen_lg":"1190"};</script> <script type='text/javascript' id='su-shortcodes-js-extra'>var SUShortcodesL10n={"noPreview":"This shortcode doesn't work in live preview. Please insert it into editor and preview on the site.","magnificPopup":{"close":"Close (Esc)","loading":"Loading...","prev":"Previous (Left arrow key)","next":"Next (Right arrow key)","counter":"%curr% of %total%","error":"Failed to load content. <a href=\"%url%\" target=\"_blank\"><u>Open link<\/u><\/a>"}};</script> <script type="text/javascript">jQuery(document).ready(function(){});</script> <script defer='defer' src="../wp-content/cache/autoptimize/js/autoptimize_736b1861fef28a5b7e4fc506e67a8f74.js"></script>
+   </body>
+</html>
