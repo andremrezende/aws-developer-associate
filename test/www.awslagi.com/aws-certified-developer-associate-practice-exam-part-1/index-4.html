@@ -181,7 +181,7 @@
                                  <p>A. Use the KMS Encrypt API to encrypt the data. Store the encrypted data key and data.<br/> B. Use a cryptography library to generate an encryption key for the application. Use the encryption key to encrypt the data. Store the encrypted data.<br/> C. Use the KMS GenerateDataKey API to get a data key. Encrypt the data with the data key. Store the encrypted data key and data.<br/> D. Upload the data to an S3 bucket using server side-encryption with an AWS KMS key.</p>
 								 <div class="su-spoiler su-spoiler-style-fancy su-spoiler-icon-chevron su-spoiler-closed" data-scroll-offset="0" data-anchor-in-url="no">
                                     <div class="su-spoiler-title" tabindex="0" role="button"><span class="su-spoiler-icon"></span>Reveal</div>
-                                    <div class="su-spoiler-content su-u-clearfix su-u-trim"> Answer: A</div>
+                                    <div class="su-spoiler-content su-u-clearfix su-u-trim"> Answer: C <a href='https://docs.aws.amazon.com/kms/latest/APIReference/API_GenerateDataKey.html'>https://docs.aws.amazon.com/kms/latest/APIReference/API_GenerateDataKey.html</a></div>
                                  </div>									 
                                  <p>162. A Developer is writing a Linux-based application to run on AWS Elastic Beanstalk. Application requirements state that the application must maintain full capacity during updates while minimizing cost. Which type of Elastic Beanstalk deployment policy should the Developer specify for the environment?</p>
                                  <p>A. Immutable<br/> B. Rolling<br/> C. All at Once<br/> D. Rolling with additional batch</p>
@@ -286,7 +286,7 @@
                                  <p>A. Deploy the function into multiple AWS Regions.<br/> B. Deploy the function into multiple Availability Zones.<br/> C. Deploy the function using Lambda layers.<br/> D. Deploy the function with its memory allocation set to the maximum amount.</p>
                                  <div class="su-spoiler su-spoiler-style-fancy su-spoiler-icon-chevron su-spoiler-closed" data-scroll-offset="0" data-anchor-in-url="no">
                                     <div class="su-spoiler-title" tabindex="0" role="button"><span class="su-spoiler-icon"></span>Reveal</div>
-                                    <div class="su-spoiler-content su-u-clearfix su-u-trim"> Answer: C</div>
+                                    <div class="su-spoiler-content su-u-clearfix su-u-trim"> Answer: D</div>
                                  </div>
                                  <p>178. A company has a legacy application that was migrated to a fleet of Amazon EC2 instances. The application stores data in a MySQL database that is currently installed on a single EC2 instance. The company has decided to migrate the database from the EC2 instance to MySQL on Amazon AWS. What should the Developer do to update the application to support data storage in Amazon RDS?</p>
                                  <p>A. Update the database connection parameters in the application to point to the new RDS instance.<br/> B. Add a script to the EC2 instance that implements an AWS SDK for requesting database credentials.<br/> C. Create a new EC2 instance with an IAM role that allows access to the new RDS database.<br/> D. Create an AWS Lambda function that will route traffic, from the EC2 instance to the RDS database.</p>
